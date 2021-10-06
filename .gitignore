@@ -102,3 +102,12 @@ dist
 
 # TernJS port file
 .tern-port
+
+# phaser-es6-webpack
+www/
+platforms/
+plugins/
+dist/
+.vscode/
+/index.html
+build/
