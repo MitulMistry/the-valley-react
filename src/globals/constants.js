@@ -1,23 +1,4 @@
 export default {
-  // Sprite sheet frame numbers
-  iconFontBaseFrame: 0,
-  iconFontOverFrame: 1,
-  iconFontClickFrame: 2,
-  iconSaveBaseFrame: 3,
-  iconSaveOverFrame: 4,
-  iconSaveClickFrame: 5,
-  iconSoundBaseFrame: 6,
-  iconSoundOverFrame: 7,
-  iconSoundClickFrame: 8,
-  iconTwitterBaseFrame01: 9,
-  iconTwitterBaseFrame02: 10,
-  iconTwitterOverFrame: 11,
-  iconTwitterClickFrame: 12,
-  iconFacebookBaseFrame01: 13,
-  iconFacebookBaseFrame02: 14,
-  iconFacebookOverFrame: 15,
-  iconFacebookClickFrame: 16,
-
   // Story module numbers
   MODULE_ASCENT_OF_MAN: 1, // AA
   MODULE_VALLEY_SPIRIT: 2, // AB

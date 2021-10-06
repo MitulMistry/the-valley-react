@@ -1,5 +1,3 @@
-import Phaser from 'phaser';
-
 import globals from '../globals/globals';
 import constants from '../globals/constants';
 import systems from '../globals/systems';

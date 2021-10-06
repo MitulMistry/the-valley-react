@@ -1,7 +1,7 @@
 {
   "name": "the-valley-react",
   "version": "0.1.0",
-  "description": "An HTML5 text adventure system using React and Redux",
+  "description": "A text adventure system using React and Redux",
   "private": true,
   "repository": {
     "type": "git",
@@ -16,7 +16,6 @@
   "bugs": {
     "url": "https://github.com/MitulMistry/the-valley-react/issues"
   },
-  "homepage": "https://github.com/MitulMistry/the-valley-react#readme",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
