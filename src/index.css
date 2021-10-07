@@ -1,4 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,700&family=Merriweather:ital@0;1&display=swap');
+
 body {
   background-color: black;
   color: white;
+  font-family: 'Merriweather', serif;
+}
+
+.italic {
+  font-style: italic;
+}
+h1, h2, h3, h4, h5 {
+  font-family: 'Lora', serif;
+  font-weight: 700;
+  font-style: italic;
 }
