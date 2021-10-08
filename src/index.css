@@ -1,16 +1,75 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,700&family=Merriweather:ital@0;1&display=swap');
 
 body {
-  background-color: black;
+  background-color: rgb(5, 5, 5);
+  background: rgb(5, 5, 5) url('./assets/valley_bg_01_small.png');
+  background-position: center;
+  background-repeat: no-repeat;
   color: white;
   font-family: 'Merriweather', serif;
 }
 
-.italic {
-  font-style: italic;
-}
 h1, h2, h3, h4, h5 {
   font-family: 'Lora', serif;
   font-weight: 700;
   font-style: italic;
+}
+
+a {
+  color: #B4B4B4;
+  text-decoration: none;
+}
+
+a:hover {
+  color: white;
+}
+
+.menu-page {
+  text-align: center;
+}
+
+.menu-title {
+  font-size: 3.2rem;
+  padding: 10rem 0 1.5rem 0;
+}
+
+h4.menu-tagline {
+  font-family: 'Merriweather', serif;
+  font-style: normal;
+  font-size: 1.1rem;
+  margin: 1rem;
+}
+
+.menu-info {
+  font-style: italic;
+  color: #B4B4B4;
+  font-size: 1.05rem;
+  max-width: 300px;
+  text-align: left;
+  margin-bottom: 2.5rem;
+}
+
+.menu-list a {
+  color: white;  
+}
+
+.menu-list a:hover {
+  color: rgb(128, 239, 253);  
+}
+
+.menu-list h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 6rem;
+  padding-bottom: 2rem;
+  color: #B4B4B4;
+}
+
+.footer-logo {
+  max-width: 50px;
+  margin: .5rem;
 }

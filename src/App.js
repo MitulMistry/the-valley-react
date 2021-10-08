@@ -10,12 +10,10 @@ import { GamePage } from './components/GamePage/GamePage';
 import { MenuPage } from './components/MenuPage/MenuPage';
 import { Footer } from './components/common/Footer';
 
-import './App.css';
-
 function App() {
   return (
     <Router>
-      <Container>
+      <Container className="app">
         <Switch>
           <Route path="/game">
             <GamePage />
