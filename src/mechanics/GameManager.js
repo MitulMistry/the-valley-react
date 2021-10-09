@@ -2,69 +2,25 @@ import globals from '../globals/globals';
 import constants from '../globals/constants';
 import systems from '../globals/systems';
 
-var textPointsPower;
-var textPointsKarma;
-var textPointsIntellect;
-var textPointsLove;
-var textPointsDarkTetrad;
-
 // global variables
 var storyText;
-var slider01;
-var slider02;
-var slider01back;
-var slider02back;
 
-var choicesTextGroup;
 var choice1;
 var choice2;
 var choice3;
 var choice4;
 var choice5;
-var choicesSpacer = 15;
 var loadedChoices = []; // array of index numbers to be used in the loaded JSON choice data object
 var choicesColorArray = []; // array of colors for each choice # to reference which color to return to after a mouse over
-var choicesHeight = 100;
 var continueText = 'Continue...'; // Text to show when the choice is only to continue
 
-var textFadeInLength = 500;
-var choicesFadeInLength = 200;
-// var textUpdateIndex = 0;
-// var textUpdateLine = '';
-
-var rightSliderGap01;
-var text01Distance;
-var text01TopGap;
-
-var rightSliderGap02;
-var text02Distance;
-var text02TopGap;
-
-var frame01Width;
-var frame01Height;
-var frame01XPos;
-var frame01YPos;
-
-var frame02Width;
-var frame02Height;
-var frame02XPos;
-var frame02YPos;
-
-var textMask01;
-var textMask02;
-
 var mainFont = '500 12.5pt Fira Sans'; // 13pt
-var mainFontColor = '#FFBD29';
 var choiceColor = '#FFFFFF';
-var choiceHighlightColor = '#FFF700';
-var choicePressColor = '#FFB000';
 var fontColorPower = '#F45E14';
 var fontColorKarma = '#12B516';
 var fontColorIntellect = '#00B0FF';
 var fontColorLove = '#FC32DA';
 var fontColorDarkTetrad = '#E60B1A';
-
-// var activeChoiceColor = "";
 
 const dummyText = {
   body: 'Morbi ultricies ante orci, vitae semper nibh consectetur dignissim. \n\nDonec odio turpis, pharetra vel dolor a, malesuada vulputate turpis. In vel porta urna,volutpat auctor ante. Phasellus quam nisi, consequat in elementum ut, accumsan in ex.\n\nSed pulvinar nunc urna, in porttitor lectus imperdiet nec. Suspendisse accumsan congue gravida. \n\nPhasellus quam nisi, consequat in elementum ut, accumsan in ex. Sed pulvinar nunc urna, in porttitor lectus imperdiet nec.\n\nSuspendisse accumsan congue gravida.',
@@ -75,143 +31,11 @@ const dummyText = {
   choice5: 'Choice 5: Suspendisse accumsan congue gravida. Phasellus quam nisi, consequat in elementum ut, accumsan in ex.'
 };
 
-export default class extends Phaser.State {
+export default class {
   constructor() {
-    super();
-    this.textStyle = {};
-    this.choicesStyle = {};
+
   }
-
-  init() {
-    this.game.stage.backgroundColor = '#000000';
-  }
-
-  // Sets up all graphical elements for game
-  create() {
-    this.setupBackground();
-    this.calculateTextWindows();
-    this.setupTextSliders();
-    this.setupDebugItems();
-
-    this.setupMasks();
-    this.setupTextStyles();
-    this.setupText();
-
-    this.setupChoices();
-    this.loadChoices();
-
-    this.fadeInText();
-    this.adjustSliders();
-
-    this.setupIcons();
-    this.fadeInScreen();
-  }
-
-  setupBackground() {
-    var menuBG = this.game.add.sprite(this.game.width / 2, this.game.height / 2, 'menu_bg01');
-    menuBG.anchor.setTo(0.5, 0.5);
-    menuBG.alpha = 0.75;
-
-    // Rotate BG (50000)
-    // this.game.add.tween(menuBG).to({ angle: 360 }, 370000, Phaser.Easing.Linear.None, true).loop(true);
-
-    var blackGradient = this.game.add.sprite(0, 0, 'blackGradient');
-    var blackGradient2 = this.game.add.sprite(0, 0, 'blackGradient');
-    blackGradient.width = this.game.width;
-    blackGradient2.width = this.game.width;
-    blackGradient2.y = this.game.height;
-    blackGradient2.scale.y = -1;
-  }
-
-  calculateTextWindows() {
-    // Dimensions of the text windows
-    frame01Width = Math.round(this.game.width * 0.7225);
-    frame01Height = Math.round(this.game.height * 0.5);
-    frame01XPos = Math.round(((this.game.width - frame01Width) / 2) - 11);
-    frame01YPos = Math.round(this.game.height * 0.12);
-
-    frame02Width = Math.round(frame01Width);
-    frame02Height = Math.round(this.game.height * 0.275 - 5); // 0.3067 --- The -5 is there just to keep it from cutting off a line - can modify or remove depending on font size, etc. Actually, it may not much matter because different combinations of lines and line breaks cause unevenness, and it cuts lines off at different points.
-    frame02XPos = frame01XPos;
-    frame02YPos = Math.round(((this.game.height - frame01YPos - frame01Height - frame02Height) / 2) + frame01YPos + frame01Height);
-  }
-
-  setupTextSliders() {
-    slider01back = this.game.add.sprite(this.game.width - frame01XPos, frame01YPos, 'slider01_back');
-    slider02back = this.game.add.sprite(this.game.width - frame02XPos, frame02YPos, 'slider02_back');
-    slider01back.height = frame01Height;
-    slider02back.height = frame02Height;
-    slider01 = this.game.add.sprite(this.game.width - frame01XPos, frame01YPos, 'slider01');
-    slider01.frame = 0;
-    slider02 = this.game.add.sprite(this.game.width - frame02XPos, frame02YPos, 'slider01');
-    slider02.frame = 0;
-
-    // Adjust sliders width
-    // slider01.width = 16;
-    // slider02.width = 16;
-    // slider01back.width = 16;
-    // slider02back.width = 16;
-
-    // --------Sliders--------
-    slider01.inputEnabled = true;
-    slider01.input.enableDrag({ boundsSprite: slider01back });
-    slider01.input.boundsSprite = slider01back;
-    slider01.input.dragFromCenter = false;
-    slider01.input.allowHorizontalDrag = false;
-    slider01.events.onInputOver.add(this.sliderOver, this);
-    slider01.events.onInputOut.add(this.sliderOut, this);
-    slider01.events.onInputDown.add(this.sliderDown, this);
-
-    slider02.inputEnabled = true;
-    slider02.input.enableDrag({ boundsSprite: slider02back });
-    slider02.input.boundsSprite = slider02back;
-    slider02.input.dragFromCenter = false;
-    slider02.input.allowHorizontalDrag = false;
-    slider02.events.onInputOver.add(this.sliderOver, this);
-    slider02.events.onInputOut.add(this.sliderOut, this);
-    slider02.events.onInputDown.add(this.sliderDown, this);
-  }
-
-  setupDebugItems() {
-    if (globals.debugMode) {
-      // systems.currentSaveGame.currentNodeKey = "AA000AA000AB"; "AA001AH001AD" //Change start node for testing.
-      systems.currentSaveGame.currentNodeKey = 'AA001AG001AA'; // "AA004BM004AA"
-      // systems.currentSaveGame.writeToGameVariables("01MountainPeopleSaved");
-
-      // systems.currentSaveGame.currentNodeKey = "AA004BM004AE";
-      // systems.currentSaveGame.writeToGameVariables("01JenethHappiness", 10); 01MountainPeopleSaved
-
-      var stylePointsPower = { font: mainFont, fill: fontColorPower, align: 'left' };
-      var stylePointsKarma = { font: mainFont, fill: fontColorKarma, align: 'left' };
-      var stylePointsIntellect = { font: mainFont, fill: fontColorIntellect, align: 'left' };
-      var stylePointsLove = { font: mainFont, fill: fontColorLove, align: 'left' };
-      var stylePointsDarkTetrad = { font: mainFont, fill: fontColorDarkTetrad, align: 'left' };
-
-      textPointsPower = this.game.add.text(this.game.width - frame01XPos + 30, frame01YPos, String(systems.currentSaveGame.playerPower), stylePointsPower);
-      textPointsKarma = this.game.add.text(this.game.width - frame01XPos + 30, frame01YPos + 20, String(systems.currentSaveGame.playerKarma), stylePointsKarma);
-      textPointsIntellect = this.game.add.text(this.game.width - frame01XPos + 30, frame01YPos + 40, String(systems.currentSaveGame.playerIntellect), stylePointsIntellect);
-      textPointsLove = this.game.add.text(this.game.width - frame01XPos + 30, frame01YPos + 60, String(systems.currentSaveGame.playerLove), stylePointsLove);
-      textPointsDarkTetrad = this.game.add.text(this.game.width - frame01XPos + 30, frame01YPos + 80, String(systems.currentSaveGame.playerDarkTetrad), stylePointsDarkTetrad);
-    }
-  }
-
-  setupTextStyles() { // calculateTextWindows() must be run prior to this method for wordWrapWidth values
-    this.textStyle = { font: mainFont, fill: mainFontColor, align: 'left', wordWrap: true, wordWrapWidth: frame01Width };
-    this.choicesStyle = { font: 'bold 12pt Arial', fill: choiceColor, align: 'left', wordWrap: true, wordWrapWidth: frame02Width };
-  }
-
-  setupMasks() {
-    // A mask is a Graphics object
-    textMask01 = this.game.add.graphics(0, 0);
-    textMask02 = this.game.add.graphics(0, 0);
-
-    // Shapes drawn to the Graphics object must be filled.
-    textMask01.beginFill(0xffffff);
-    textMask01.drawRect(frame01XPos, frame01YPos, this.game.width, frame01Height);
-    textMask02.beginFill(0xffffff);
-    textMask02.drawRect(frame02XPos, frame02YPos, this.game.width, frame02Height);
-  }
-
+  
   setupText() {
     var textPrint = globals.currentModuleTextMap.get(systems.currentSaveGame.currentNodeKey);
 
@@ -219,266 +43,6 @@ export default class extends Phaser.State {
     // storyText.lineSpacing = 5;
 
     storyText.mask = textMask01;
-  }
-
-  setupChoices() {
-    // Add choices to group so they can be moved together with slider.
-    choicesTextGroup = this.game.add.group();
-
-    choice1 = this.game.add.text(frame02XPos, frame02YPos, dummyText.choice1, this.choicesStyle, choicesTextGroup);
-    choice1.inputEnabled = true;
-    choice1.input.useHandCursor = true;
-    choice1.events.onInputOver.add(this.choiceOver, this);
-    choice1.events.onInputOut.add(this.choiceOut1, this);
-    choice1.events.onInputDown.add(this.choiceDown, this);
-    choice1.events.onInputUp.add(this.choiceUp1, this);
-
-    choice2 = this.game.add.text(frame02XPos, frame02YPos + choice1.height + choicesSpacer, dummyText.choice2, this.choicesStyle, choicesTextGroup);
-    choice2.inputEnabled = true;
-    choice2.input.useHandCursor = true;
-    choice2.events.onInputOver.add(this.choiceOver, this);
-    choice2.events.onInputOut.add(this.choiceOut2, this);
-    choice2.events.onInputDown.add(this.choiceDown, this);
-    choice2.events.onInputUp.add(this.choiceUp2, this);
-
-    choice3 = this.game.add.text(frame02XPos, frame02YPos + choice1.height + choice2.height + (choicesSpacer * 2), dummyText.choice3, this.choicesStyle, choicesTextGroup);
-    choice3.inputEnabled = true;
-    choice3.input.useHandCursor = true;
-    choice3.events.onInputOver.add(this.choiceOver, this);
-    choice3.events.onInputOut.add(this.choiceOut3, this);
-    choice3.events.onInputDown.add(this.choiceDown, this);
-    choice3.events.onInputUp.add(this.choiceUp3, this);
-
-    choice4 = this.game.add.text(frame02XPos, frame02YPos + choice1.height + choice2.height + choice3.height + (choicesSpacer * 3), dummyText.choice4, this.choicesStyle, choicesTextGroup);
-    choice4.inputEnabled = true;
-    choice4.input.useHandCursor = true;
-    choice4.events.onInputOver.add(this.choiceOver, this);
-    choice4.events.onInputOut.add(this.choiceOut4, this);
-    choice4.events.onInputDown.add(this.choiceDown, this);
-    choice4.events.onInputUp.add(this.choiceUp4, this);
-
-    choice5 = this.game.add.text(frame02XPos, frame02YPos + choice1.height + choice2.height + choice3.height + choice4.height + (choicesSpacer * 4), dummyText.choice5, this.choicesStyle, choicesTextGroup);
-    choice5.inputEnabled = true;
-    choice5.input.useHandCursor = true;
-    choice5.events.onInputOver.add(this.choiceOver, this);
-    choice5.events.onInputOut.add(this.choiceOut5, this);
-    choice5.events.onInputDown.add(this.choiceDown, this);
-    choice5.events.onInputUp.add(this.choiceUp5, this);
-
-    choicesTextGroup.mask = textMask02;
-    // choicesTextGroup.anchor.setTo(0, 0);
-  }
-
-  setupIcons() {
-    var iconXoffset = this.game.width * 0.0625;
-
-    var iconTwitterButton = this.game.add.button(iconXoffset, this.game.height * 0.8267, 'icons', this.iconTwitter, this);
-    iconTwitterButton.anchor.setTo(0.5, 0.5);
-    iconTwitterButton.frame = 9;
-    iconTwitterButton.input.useHandCursor = true;
-    iconTwitterButton.events.onInputOver.add(this.iconOver, this);
-    iconTwitterButton.events.onInputOut.add(this.iconOut, this);
-    iconTwitterButton.events.onInputDown.add(this.iconDown, this);
-
-    var iconFacebookButton = this.game.add.button(iconXoffset, this.game.height * 0.9283, 'icons', this.iconFacebook, this);
-    iconFacebookButton.anchor.setTo(0.5, 0.5);
-    iconFacebookButton.frame = 13;
-    iconFacebookButton.input.useHandCursor = true;
-    iconFacebookButton.events.onInputOver.add(this.iconOver, this);
-    iconFacebookButton.events.onInputOut.add(this.iconOut, this);
-    iconFacebookButton.events.onInputDown.add(this.iconDown, this);
-
-    var iconFontButton = this.game.add.button(this.game.width - iconXoffset, this.game.height * 0.72, 'icons', this.iconFont, this, constants.iconFontOverFrame, constants.iconFontBaseFrame, constants.iconFontClickFrame);
-    iconFontButton.anchor.setTo(0.5, 0.5);
-    iconFontButton.frame = constants.iconFontBaseFrame;
-    iconFontButton.inputEnabled = false; // disable font button
-    iconFontButton.alpha = 0.5;
-
-    var iconSaveButton = this.game.add.button(this.game.width - iconXoffset, this.game.height * 0.8267, 'icons', this.iconSave, this, constants.iconSaveOverFrame, constants.iconSaveBaseFrame, constants.iconSaveClickFrame);
-    iconSaveButton.anchor.setTo(0.5, 0.5);
-    iconSaveButton.frame = constants.iconSaveBaseFrame;
-    iconSaveButton.input.useHandCursor = true;
-
-    var iconSoundButton = this.game.add.button(this.game.width - iconXoffset, this.game.height * 0.9283, 'icons', this.iconSound, this, constants.iconSoundOverFrame, constants.iconSoundBaseFrame, constants.iconSoundClickFrame);
-    iconSoundButton.anchor.setTo(0.5, 0.5);
-    iconSoundButton.frame = constants.iconSoundBaseFrame;
-    iconSoundButton.inputEnabled = false; // disable sound button
-    iconSoundButton.alpha = 0.5;
-  }
-
-  fadeInScreen() { // extract to stateUtilities with time parameter for reuse
-    var blackFade = this.game.add.sprite(0, 0, 'rectangle_black');
-    blackFade.height = this.game.height;
-    blackFade.width = this.game.width;
-    var blackFadeTween = this.game.add.tween(blackFade);
-    blackFadeTween.to({ alpha: 0 }, 500);
-    blackFadeTween.onComplete.add(function () {
-      blackFade.destroy();
-    });
-    blackFadeTween.start();
-  }
-
-  sliderOver(sprite) {
-    sprite.frame = 1;
-  }
-
-  sliderOut(sprite) {
-    sprite.frame = 0;
-  }
-
-  sliderDown(sprite) {
-    sprite.frame = 2;
-  }
-
-  iconOver(sprite) {
-    if (sprite.frame === constants.iconTwitterBaseFrame01) {
-      sprite.frame = constants.iconTwitterBaseFrame02;
-    } else if (sprite.frame === constants.iconFacebookBaseFrame01) {
-      sprite.frame = constants.iconFacebookBaseFrame02;
-    }
-  }
-
-  iconOut(sprite) {
-    if (sprite.frame === constants.iconTwitterBaseFrame02) {
-      sprite.frame = constants.iconTwitterBaseFrame01;
-    } else if (sprite.frame === constants.iconFacebookBaseFrame02) {
-      sprite.frame = constants.iconFacebookBaseFrame01;
-    }
-  }
-
-  iconDown(sprite) {
-    if (sprite.frame === constants.iconTwitterBaseFrame02) {
-      sprite.frame = constants.iconTwitterBaseFrame01;
-    } else if (sprite.frame === constants.iconFacebookBaseFrame02) {
-      sprite.frame = constants.iconFacebookBaseFrame01;
-    }
-  }
-
-  iconTwitter() {
-    window.open('https://twitter.com/home?status=Check%20out%20the%20epic%20text%20adventure%20-%20%22The%20Valley%22%20http://MitulMistry.com/%20%23indiedev', '_blank');
-  }
-
-  iconFacebook() {
-    window.open('https://www.facebook.com/sharer/sharer.php?u=http://MitulMistry.com', '_blank');
-  }
-
-  iconFont() {
-
-  }
-
-  iconSave() {
-    this.game.state.start('Menu');
-  }
-
-  iconSound() {
-
-  }
-
-  adjustSliders() {
-    // Adjust slider height based on amount of text, or else hide
-    slider01.y = frame01YPos;
-    slider02.y = frame02YPos;
-
-    if (storyText.height > frame01Height) {
-      slider01.visible = true;
-      slider01back.visible = true;
-      slider01.height = (frame01Height / storyText.height) * frame01Height;
-      this.fadeSlider(slider01, 0, textFadeInLength);
-      this.fadeSlider(slider01back, 0, textFadeInLength);
-
-      // Slider movement calculations
-      rightSliderGap01 = slider01back.height - slider01.height;
-      text01Distance = (rightSliderGap01 / slider01back.height) * storyText.height;
-      text01TopGap = frame01YPos;
-    } else {
-      slider01.height = frame01Height;
-      slider01.visible = false;
-      slider01back.visible = false;
-    }
-    if (choicesHeight > frame02Height) {
-      slider02.visible = true;
-      slider02back.visible = true;
-      slider02.height = (frame02Height / choicesHeight) * frame02Height;
-      this.fadeSlider(slider02, textFadeInLength, choicesFadeInLength);
-      this.fadeSlider(slider02back, textFadeInLength, choicesFadeInLength);
-
-      // Slider movement calculations
-      rightSliderGap02 = slider02back.height - slider02.height;
-      text02Distance = (rightSliderGap02 / slider02back.height) * choicesTextGroup.height;
-      text02TopGap = frame02YPos;
-    } else {
-      slider02.height = frame02Height;
-      slider02.visible = false;
-      slider02back.visible = false;
-    }
-  }
-
-  fadeSlider(slider, delay, duration) {
-    slider.alpha = 0;
-
-    this.game.time.events.add(delay, function () {
-      this.game.add.tween(slider).to({ alpha: 1 }, duration, Phaser.Easing.Linear.None, true);
-    }, this);
-  }
-
-  choiceOver(item) {
-    item.fill = choiceHighlightColor;
-    // activeChoiceColor = item.fill;
-  }
-
-  // choiceOut: function (item) {
-  //   item.fill = choiceColor;
-  // },
-
-  choiceOut1(item) {
-    item.fill = choicesColorArray[0];
-  }
-
-  choiceOut2(item) {
-    item.fill = choicesColorArray[1];
-  }
-
-  choiceOut3(item) {
-    item.fill = choicesColorArray[2];
-  }
-
-  choiceOut4(item) {
-    item.fill = choicesColorArray[3];
-  }
-
-  choiceOut5(item) {
-    item.fill = choicesColorArray[4];
-  }
-
-  choiceDown(item) {
-    // click01.play();
-    item.fill = choicePressColor;
-  }
-
-  choiceUp1(item) {
-    // http://www.html5gamedevs.com/topic/5351-call-a-function-with-arguments-when-oninputdown/
-    item.fill = choiceHighlightColor;
-    this.makeDecision(1);
-  }
-
-  choiceUp2(item) {
-    item.fill = choiceHighlightColor;
-    this.makeDecision(2);
-  }
-
-  choiceUp3(item) {
-    item.fill = choiceHighlightColor;
-    this.makeDecision(3);
-  }
-
-  choiceUp4(item) {
-    item.fill = choiceHighlightColor;
-    this.makeDecision(4);
-  }
-
-  choiceUp5(item) {
-    item.fill = choiceHighlightColor;
-    this.makeDecision(5);
   }
 
   loadChoices() {
@@ -910,37 +474,7 @@ export default class extends Phaser.State {
     this.loadChoices();
     this.adjustSliders();
   }
-
-  fadeInText() {
-    storyText.alpha = 0;
-    // http://www.html5gamedevs.com/topic/8639-fade-out-text-after-2-second-delay/
-    this.game.add.tween(storyText).to({ alpha: 1 }, textFadeInLength, Phaser.Easing.Linear.None, true);
-  }
-
-  fadeInChoice(choice, delay) {
-    choice.alpha = 0;
-
-    this.game.time.events.add(delay, function () {
-      this.game.add.tween(choice).to({ alpha: 1 }, choicesFadeInLength, Phaser.Easing.Linear.None, true);
-    }, this);
-  }
-
-  // loadStoryText: function () {
-
-  //   textUpdateIndex = 0;
-
-  //   // first parameter is speed, second parameter is number of times event will repeat, third is event to fire, fourth is context - http://phaser.io/examples/v2/time/basic-repeat-event, https://phaser.io/examples/v2/text/kern-of-duty
-
-  //   this.game.time.events.repeat(5, textPrint.length + 1, this.updateText, this);
-  // },
-  // updateText: function () {
-
-  //   textUpdateIndex++;
-
-  //   textUpdateLine = textPrint.substring(0, textUpdateIndex);
-  //   storyText.setText(textUpdateLine);
-  // },
-
+  
   processLinkNode(destination) {
     var loadedLinkNodes = [];
     var stringTest;
@@ -1096,26 +630,6 @@ export default class extends Phaser.State {
         // go to destinationD
         return linkNode.destinationD;
       }
-    }
-  }
-
-  updateDebug() {
-    if (globals.debugMode) {
-      textPointsPower.setText(systems.currentSaveGame.playerPower);
-      textPointsKarma.setText(systems.currentSaveGame.playerKarma);
-      textPointsIntellect.setText(systems.currentSaveGame.playerIntellect);
-      textPointsLove.setText(systems.currentSaveGame.playerLove);
-      textPointsDarkTetrad.setText(systems.currentSaveGame.playerDarkTetrad);
-    }
-  }
-
-  update() {
-    // Move text based on sliders
-    if (slider01.visible === true) {
-      storyText.y = text01TopGap - (((slider01.y - text01TopGap) / rightSliderGap01) * text01Distance);
-    }
-    if (slider02.visible === true) {
-      choicesTextGroup.y = 1 - (((slider02.y - text02TopGap) / rightSliderGap02) * text02Distance);
     }
   }
 }
