@@ -73,3 +73,35 @@ h4.menu-tagline {
   max-width: 50px;
   margin: .5rem;
 }
+
+.navbar a {
+  font-family: 'Lora', serif;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 1.6rem;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: #B4B4B4;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: white;
+}
+
+.game-nav-container {
+  padding: 0;
+}
+
+.game-text-container {
+  margin-top: 3rem;
+  max-width: 800px;
+}
+
+.game-choices-list {
+  margin-top: 2.5rem;
+}
+
+.game-choices-info {
+  font-weight: 700;
+}
