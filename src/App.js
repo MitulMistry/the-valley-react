@@ -2,16 +2,16 @@ import {
   BrowserRouter as Router,
   Switch,
   Route
-} from "react-router-dom";
+} from 'react-router-dom';
 
+import { Provider } from 'react-redux';
 import Container from 'react-bootstrap/Container';
-
 import { GamePage } from './components/GamePage/GamePage';
 import { MenuPage } from './components/MenuPage/MenuPage';
 import { Footer } from './components/common/Footer';
 
-function App() {
-  return (
+const App = ({ store }) => (
+  <Provider store={store}>
     <Router>
       <Container className="app">
         <Switch>
@@ -25,7 +25,7 @@ function App() {
         <Footer />
       </Container>
     </Router>
-  );
-}
+  </Provider>
+);
 
 export default App;
