@@ -10,6 +10,8 @@ export default {
   MODULE_PLUTOCRATS_OF_MARS: 8, // AH
   MODULE_GHOSTS_OF_PERSIA: 9, // AI
 
+  ASCENT_OF_MAN_STARTING_KEY: 'AA000AA000AA',
+
   // Point boost values for power, intellect, love, etc. for decisions
   POINT_BOOST_SMALL: 1,
   POINT_BOOST_MEDIUM: 2,
