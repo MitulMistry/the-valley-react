@@ -14,5 +14,5 @@ export const setCurrentModule = module => ({
 
 export const setCurrentNodeKey = nodeKey => ({
   type: SET_CURRENT_NODE_KEY,
-  nodeKey
+  nodeKey,
 });
