@@ -1,4 +1,5 @@
 import {
+  START_GAME,
   ADD_TO_LOG,
   SET_CURRENT_MODULE,
   SET_CURRENT_NODE_KEY
@@ -9,6 +10,10 @@ const gameLogReducer = (state = {}, action) => {
   Object.freeze(state);
 
   switch(action.type) {
+    case START_GAME:
+      nextState = Object.assign({}, state);
+      nextState.gameStarted = true;
+      return nextState;
     case ADD_TO_LOG:
       nextState = Object.assign({}, state);
       nextState.gameLog.push({
