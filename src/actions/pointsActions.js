@@ -1,6 +1,10 @@
 export const CHANGE_POINTS = 'CHANGE_POINTS';
 
-export const changePoints = points => ({
+export const changePoints = (power, karma, darkTetrad, intellect, love) => ({
   type: CHANGE_POINTS,
-  points,
+  power,
+  karma,
+  darkTetrad,
+  intellect,
+  love,
 });

@@ -28,8 +28,8 @@ const initialState = {
     }
   ],
   textData: {},
-  choicesData: {},
-  linkNodesData: {}
+  linkNodesData: {},
+  choicesData: {}  
 }
 
 const configureStore = (preloadedState = initialState) => {

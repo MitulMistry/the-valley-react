@@ -10,13 +10,19 @@ const gameLogReducer = (state = {}, action) => {
 
   switch(action.type) {
     case ADD_TO_LOG:
-
+      nextState = Object.assign({}, state);
+      nextState.gameLog.push({
+        textNodeKey: action.textNodeKey,
+        decision: action.decision
+      });
       return nextState;
     case SET_CURRENT_MODULE:
-
+      nextState = Object.assign({}, state);
+      nextState.module = action.module;
       return nextState;
     case SET_CURRENT_NODE_KEY:
-      
+      nextState = Object.assign({}, state);
+      nextState.nodeKey = action.nodeKey;
       return nextState;
     default:
       return state;

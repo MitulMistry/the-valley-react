@@ -6,7 +6,12 @@ const pointsReducer = (state = {}, action) => {
   
   switch(action.type) {
     case CHANGE_POINTS:
-
+      nextState = Object.assign({}, state);
+      nextState.playerPoints.power += action.power;
+      nextState.playerPoints.karma += action.karma;
+      nextState.playerPoints.darkTetrad += action.darkTetrad;
+      nextState.playerPoints.intellect += action.intellect;
+      nextState.playerPoints.love += action.love;
       return nextState;
     default:
       return state;
