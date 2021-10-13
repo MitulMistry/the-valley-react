@@ -4,8 +4,8 @@ import { GamePage } from './GamePage';
 // Actions
 
 const mapStateToProps = state => ({
-  text: state.text,
-  choices: state.choices
+  text: state.text.text,
+  choices: state.text.choices
 });
 
 // const mapDispatchToProps = dispatch => ({

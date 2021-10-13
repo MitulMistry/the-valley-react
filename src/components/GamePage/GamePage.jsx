@@ -13,8 +13,8 @@ export class GamePage extends React.Component {
         <GameNavBar />
         <div className="d-flex justify-content-center">
           <div className="game-text-container">
-            <GameText />
-            <GameChoicesList />
+            <GameText text={text} />
+            <GameChoicesList choices={choices} />
           </div>
         </div>
       </div>
