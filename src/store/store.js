@@ -16,13 +16,18 @@ const configureStore = (preloadedState = {}) => {
 
   store.subscribe(() => {
     let state = store.getState();
-
-    // Don't put loaded JSON data in browser storage
-    state.textData = {};
-    state.choicesData = {};
-    state.linkNodesData = {};
     
-    localStorage.state = JSON.stringify(state);
+    // Don't put loaded JSON data in browser storage
+    let modifiedState = {
+      ...state,
+      data: {
+        textData: {},
+        choicesData: {},
+        linkNodesData: {}
+      }
+    }
+    
+    localStorage.state = JSON.stringify(modifiedState);
   });
   return store;
 }
