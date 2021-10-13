@@ -4,7 +4,13 @@ import {
   SET_CHOICES_DATA
 } from '../actions/dataActions';
 
-const dataReducer = (state = {}, action) => {
+const initialState = {
+  textData: {},
+  linkNodesData: {},
+  choicesData: {}
+}
+
+const dataReducer = (state = initialState, action) => {
   let nextState;
   Object.freeze(state);
 

@@ -1,6 +1,10 @@
 import { CHANGE_VARIABLES } from '../actions/variablesActions';
 
-const variablesReducer = (state = {}, action) => {
+const initialState = {
+  playerVariables: new Map() 
+}
+
+const variablesReducer = (state = initialState, action) => {
   let nextState;
   Object.freeze(state);
 

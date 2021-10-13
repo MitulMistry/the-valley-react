@@ -7,7 +7,7 @@ import textReducer from './textReducer.js';
 import dataReducer from './dataReducer.js';
 
 const rootReducer = combineReducers({
-  gameLog: gameLogReducer,
+  game: gameLogReducer,
   points: pointsReducer,
   variables: variablesReducer,
   text: textReducer,

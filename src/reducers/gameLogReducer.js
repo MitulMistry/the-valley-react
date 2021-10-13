@@ -5,7 +5,13 @@ import {
   SET_CURRENT_NODE_KEY
 } from '../actions/gameLogActions';
 
-const gameLogReducer = (state = {}, action) => {
+const initialState = {
+  debugMode: false,
+  gameStarted: false,
+  gamelog: []
+}
+
+const gameLogReducer = (state = initialState, action) => {
   let nextState;
   Object.freeze(state);
 

@@ -1,6 +1,16 @@
 import { CHANGE_POINTS } from '../actions/pointsActions';
 
-const pointsReducer = (state = {}, action) => {
+const initialState = {
+  playerPoints: {
+    power: 0,
+    karma: 0,
+    darkTetrad: 0,
+    intellect: 0,
+    love: 0,
+  }
+}
+
+const pointsReducer = (state = initialState, action) => {
   let nextState;
   Object.freeze(state);
   

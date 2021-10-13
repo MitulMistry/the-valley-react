@@ -1,6 +1,20 @@
 import { SET_TEXT, SET_CHOICES } from '../actions/textActions';
 
-const textReducer = (state = {}, action) => {
+const initialState = {
+  text: "Placeholder text.",
+  choices: [
+    {
+      KEY: "AA000AA000AB01",
+      text: "Placeholder text."
+    },
+    {
+      KEY: "AA000AA000AB02",
+      text: "Placeholder text."
+    }
+  ]
+}
+
+const textReducer = (state = initialState, action) => {
   let nextState;
   Object.freeze(state);
 
