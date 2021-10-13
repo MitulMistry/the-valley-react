@@ -6,6 +6,8 @@ import { GameChoicesList } from './GameChoicesList';
 
 export class GamePage extends React.Component {
   render() {
+    const { text, choices } = this.props;
+
     return (
       <div className="game-page">
         <GameNavBar />

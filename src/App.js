@@ -6,8 +6,8 @@ import {
 
 import { Provider } from 'react-redux';
 import Container from 'react-bootstrap/Container';
-import { GamePage } from './components/GamePage/GamePage';
-import { MenuPage } from './components/MenuPage/MenuPage';
+import GamePageContainer from './components/GamePage/GamePageContainer';
+import MenuPageContainer from './components/MenuPage/MenuPageContainer';
 import { Footer } from './components/common/Footer';
 
 const App = ({ store }) => (
@@ -16,10 +16,10 @@ const App = ({ store }) => (
       <Container className="app">
         <Switch>
           <Route path="/game">
-            <GamePage />
+            <GamePageContainer />
           </Route>
           <Route path="/">
-            <MenuPage />
+            <MenuPageContainer />
           </Route>
         </Switch>
         <Footer />
