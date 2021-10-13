@@ -5,10 +5,14 @@ import {
   SET_CURRENT_NODE_KEY
 } from '../actions/gameLogActions';
 
+import constants from '../globals/constants';
+
 const initialState = {
   debugMode: false,
   gameStarted: false,
-  gameLog: []
+  gameLog: [],
+  module: constants.MODULE_ASCENT_OF_MAN,
+  nodeKey: constants.ASCENT_OF_MAN_STARTING_KEY
 }
 
 const gameLogReducer = (state = initialState, action) => {
@@ -20,6 +24,8 @@ const gameLogReducer = (state = initialState, action) => {
       nextState = Object.assign({}, state);
       nextState.gameStarted = true;
       nextState.gameLog = [];
+      nextState.module = initialState.module;
+      nextState.nodeKey = initialState.nodeKey;
       return nextState;
     case ADD_TO_LOG:
       nextState = Object.assign({}, state);
