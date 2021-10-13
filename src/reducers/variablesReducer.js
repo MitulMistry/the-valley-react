@@ -1,4 +1,4 @@
-import { CHANGE_VARIABLES } from '../actions/variablesActions';
+import { RESET_VARIABLES, CHANGE_VARIABLES } from '../actions/variablesActions';
 
 const initialState = {
   playerVariables: new Map() 
@@ -9,6 +9,10 @@ const variablesReducer = (state = initialState, action) => {
   Object.freeze(state);
 
   switch(action.type) {
+    case RESET_VARIABLES:
+      nextState = Object.assign({}, state);
+      nextState.playerVariables = initialState.playerVariables;
+      return nextState;
     case CHANGE_VARIABLES:
       nextState = Object.assign({}, state);
 

@@ -8,7 +8,7 @@ import {
 const initialState = {
   debugMode: false,
   gameStarted: false,
-  gamelog: []
+  gameLog: []
 }
 
 const gameLogReducer = (state = initialState, action) => {
@@ -19,6 +19,7 @@ const gameLogReducer = (state = initialState, action) => {
     case START_GAME:
       nextState = Object.assign({}, state);
       nextState.gameStarted = true;
+      nextState.gameLog = [];
       return nextState;
     case ADD_TO_LOG:
       nextState = Object.assign({}, state);

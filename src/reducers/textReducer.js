@@ -1,4 +1,4 @@
-import { SET_TEXT, SET_CHOICES } from '../actions/textActions';
+import { RESET_TEXT_CHOICES, SET_TEXT, SET_CHOICES } from '../actions/textActions';
 
 const initialState = {
   text: "Placeholder text.",
@@ -19,6 +19,11 @@ const textReducer = (state = initialState, action) => {
   Object.freeze(state);
 
   switch(action.type) {
+    case RESET_TEXT_CHOICES:
+      nextState = Object.assign({}, state);
+      nextState.text = initialState.text;
+      nextState.choices = initialState.choices;
+      return nextState;
     case SET_TEXT:
       nextState = Object.assign({}, state);
       nextState.text = action.text;

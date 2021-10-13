@@ -11,8 +11,18 @@ export class MenuList extends React.Component {
   }
 
   startNewGame() {
-    // Dispatch Redux action
-    this.props.startGame();
+    // Dispatch Redux actions
+    const {
+      startGame,
+      resetTextChoices,
+      resetVariables,
+      resetPoints
+    } = this.props;
+    
+    startGame();
+    resetTextChoices();
+    resetVariables();
+    resetPoints();
   }
 
   render() {
