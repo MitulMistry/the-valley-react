@@ -1,3 +1,5 @@
+import TextManager from '../mechanics/TextManager';
+
 export const SET_TEXT_DATA = "SET_TEXT_DATA";
 export const SET_LINK_NODES_DATA = "SET_LINK_NODES_DATA";
 export const SET_CHOICES_DATA = "SET_CHOICES_DATA";
@@ -24,3 +26,9 @@ export const setAllData = (textData, linkNodesData, choicesData) => ({
   linkNodesData,
   choicesData,
 });
+
+export const loadModuleData = moduleNumber => dispatch => (
+  TextManager.loadModuleAsync(moduleNumber).then(data => (
+    dispatch(setAllData(data.textData, data.linkNodesData, data.choicesData))
+  ))
+);

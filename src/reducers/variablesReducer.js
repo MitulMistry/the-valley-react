@@ -1,7 +1,7 @@
 import { RESET_VARIABLES, CHANGE_VARIABLES } from '../actions/variablesActions';
 
 const initialState = {
-  playerVariables: new Map() 
+  playerVariables: {}
 }
 
 const variablesReducer = (state = initialState, action) => {
