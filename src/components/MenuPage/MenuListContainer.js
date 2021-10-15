@@ -6,7 +6,7 @@ import { startGame } from '../../actions/gameLogActions';
 import { resetTextChoices } from '../../actions/textActions';
 import { resetVariables } from '../../actions/variablesActions';
 import { resetPoints } from '../../actions/pointsActions';
-import { loadModuleData } from '../../actions/dataActions';
+import { loadModuleData, setLoading } from '../../actions/dataActions';
 
 const mapStateToProps = state => ({
   gameStarted: state.game.gameStarted
@@ -18,6 +18,7 @@ const mapDispatchToProps = dispatch => ({
   resetVariables: () => dispatch(resetVariables()),
   resetPoints: () => dispatch(resetPoints()),
   loadModuleData: moduleNumber => dispatch(loadModuleData(moduleNumber)),
+  setLoading: loading => dispatch(setLoading(loading)),
 });
 
 export default connect(

@@ -6,7 +6,7 @@ import {
 
 import { Provider } from 'react-redux';
 import Container from 'react-bootstrap/Container';
-import GamePageContainer from './components/GamePage/GamePageContainer';
+import GameLoadingContainer from './components/GamePage/GameLoadingContainer';
 import { MenuPage } from './components/MenuPage/MenuPage';
 import { Footer } from './components/common/Footer';
 
@@ -16,7 +16,7 @@ const App = ({ store }) => (
       <Container className="app">
         <Switch>
           <Route path="/game">
-            <GamePageContainer />
+            <GameLoadingContainer />
           </Route>
           <Route path="/">
             <MenuPage />

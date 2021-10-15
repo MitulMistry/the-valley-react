@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { MenuItem } from './MenuItem';
 
 import constants from '../../globals/constants';
+import { setLoading } from '../../actions/dataActions';
 
 export class MenuList extends React.Component {
   constructor(props) {
@@ -19,13 +20,15 @@ export class MenuList extends React.Component {
       resetTextChoices,
       resetVariables,
       resetPoints,
-      loadModuleData
+      loadModuleData,
+      setLoading
     } = this.props;
     
     startGame();
     resetTextChoices();
     resetVariables();
     resetPoints();
+    setLoading(true);
     loadModuleData(constants.MODULE_ASCENT_OF_MAN);
   }
 
