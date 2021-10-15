@@ -1,3 +1,9 @@
+import { setText, setChoices } from '../actions/textActions';
+
+// Import Redux store from index.js where it is created.
+// Store can be accessed with .getState() and can .dispatch() actions.
+import { store } from '../index';
+
 import globals from '../globals/globals';
 import constants from '../globals/constants';
 import systems from '../globals/systems';
@@ -14,6 +20,45 @@ var loadedChoices = []; // array of index numbers to be used in the loaded JSON 
 var choicesColorArray = []; // array of colors for each choice # to reference which color to return to after a mouse over
 var continueText = 'Continue...'; // Text to show when the choice is only to continue
 
+var choicesTextGroup;
+var textPointsPower;
+var textPointsKarma;
+var textPointsIntellect;
+var textPointsLove;
+var textPointsDarkTetrad;
+
+var storyText;
+var slider01;
+var slider02;
+var slider01back;
+var slider02back;
+
+var choicesHeight = 100;
+var choicesSpacer = 15;
+var textFadeInLength = 500;
+var choicesFadeInLength = 200;
+
+var rightSliderGap01;
+var text01Distance;
+var text01TopGap;
+
+var rightSliderGap02;
+var text02Distance;
+var text02TopGap;
+
+var frame01Width;
+var frame01Height;
+var frame01XPos;
+var frame01YPos;
+
+var frame02Width;
+var frame02Height;
+var frame02XPos;
+var frame02YPos;
+
+var textMask01;
+var textMask02;
+
 var mainFont = '500 12.5pt Fira Sans'; // 13pt
 var choiceColor = '#FFFFFF';
 var fontColorPower = '#F45E14';
@@ -22,27 +67,17 @@ var fontColorIntellect = '#00B0FF';
 var fontColorLove = '#FC32DA';
 var fontColorDarkTetrad = '#E60B1A';
 
-const dummyText = {
-  body: 'Morbi ultricies ante orci, vitae semper nibh consectetur dignissim. \n\nDonec odio turpis, pharetra vel dolor a, malesuada vulputate turpis. In vel porta urna,volutpat auctor ante. Phasellus quam nisi, consequat in elementum ut, accumsan in ex.\n\nSed pulvinar nunc urna, in porttitor lectus imperdiet nec. Suspendisse accumsan congue gravida. \n\nPhasellus quam nisi, consequat in elementum ut, accumsan in ex. Sed pulvinar nunc urna, in porttitor lectus imperdiet nec.\n\nSuspendisse accumsan congue gravida.',
-  choice1: 'Choice 1: Morbi ultricies ante orci, vitae semper nibh consectetur dignissim. Sed pulvinar nunc urna, in porttitor lectus imperdiet nec. Suspendisse accumsan congue gravida.',
-  choice2: 'Choice 2: Donec odio turpis, pharetra vel dolor a, malesuada vulputate turpis. Phasellus quam nisi, consequat in elementum ut, accumsan in ex.',
-  choice3: 'Choice 3: In vel porta urna,volutpat auctor ante.',
-  choice4: 'Choice 4: Phasellus quam nisi, consequat in elementum ut, accumsan in ex.',
-  choice5: 'Choice 5: Suspendisse accumsan congue gravida. Phasellus quam nisi, consequat in elementum ut, accumsan in ex.'
-};
-
 export default class {
-  constructor() {
-
-  }
   
-  setupText() {
-    var textPrint = globals.currentModuleTextMap.get(systems.currentSaveGame.currentNodeKey);
+  static loadGame() {
+    this.loadText();
+    // this.loadChoices();
+  }
 
-    storyText = this.game.add.text(frame01XPos, frame01YPos, textPrint, this.textStyle);
-    // storyText.lineSpacing = 5;
-
-    storyText.mask = textMask01;
+  static loadText() {
+    const key = store.getState().game.currentNodeKey;
+    const text = store.getState().data.textData[key];
+    store.dispatch(setText(text));
   }
 
   loadChoices() {

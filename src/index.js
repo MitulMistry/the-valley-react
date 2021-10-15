@@ -8,13 +8,14 @@ import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
 
-document.addEventListener('DOMContentLoaded', () => {
-  // Load previous state from browser's localStorage into Redux store
-  // if it exists, otherwise use empty object
-  const preloadedState = localStorage.state ?
-    JSON.parse(localStorage.state) : {};
-  const store = configureStore(preloadedState);
+// Load previous state from browser's localStorage into Redux store
+// if it exists, otherwise use empty object. Define store at top level
+// so it can be exported to be used with GameManager class.s
+const preloadedState = localStorage.state ?
+  JSON.parse(localStorage.state) : {};
+const store = configureStore(preloadedState);
 
+document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
     <React.StrictMode>
       <App store={store} />
@@ -27,3 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
   reportWebVitals();
 });
+
+// Export Redux store so it can be imported into GameManager class and accessed
+// in its static methods. For React components, use Connect() instead.
+export { store };

@@ -11,8 +11,8 @@ const initialState = {
   debugMode: false,
   gameStarted: false,
   gameLog: [],
-  module: constants.MODULE_ASCENT_OF_MAN,
-  nodeKey: constants.ASCENT_OF_MAN_STARTING_KEY
+  currentModule: constants.MODULE_ASCENT_OF_MAN,
+  currentNodeKey: constants.ASCENT_OF_MAN_STARTING_KEY
 }
 
 const gameLogReducer = (state = initialState, action) => {

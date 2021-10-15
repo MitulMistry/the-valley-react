@@ -1,10 +1,16 @@
 import React from 'react';
 
+import GameManager from '../../mechanics/GameManager';
+
 import { GameNavBar } from './GameNavBar';
 import { GameText } from './GameText';
 import { GameChoicesList } from './GameChoicesList';
 
 export class GamePage extends React.Component {
+  componentDidMount() {
+    GameManager.loadGame();
+  }
+  
   render() {
     const { text, choices } = this.props;
 
