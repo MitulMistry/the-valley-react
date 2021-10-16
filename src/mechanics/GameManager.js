@@ -71,7 +71,7 @@ export default class {
   
   static loadGame() {
     this.loadText();
-    // this.loadChoices();
+    this.loadChoices();
   }
 
   static loadText() {
@@ -80,165 +80,91 @@ export default class {
     store.dispatch(setText(text));
   }
 
-  loadChoices() {
-    this.updateDebug(); // update debug items if debug mode is enabled
+  static loadChoices() {
+    let stringTest;
+    let choices = [];
 
-    var stringTest;
-    loadedChoices.length = 0; // Clear the array
-    choicesColorArray.length = 0;
+    const currentNodeKey = store.getState().game.currentNodeKey;
+    const choicesData = store.getState().data.choicesData;
 
-    // Reset choice colors to white
-    choice1.fill = choiceColor;
-    choice2.fill = choiceColor;
-    choice3.fill = choiceColor;
-    choice4.fill = choiceColor;
-    choice5.fill = choiceColor;
-
-    for (var i in globals.currentModuleChoicesData) {
-      stringTest = globals.currentModuleChoicesData[i].KEY;
-      if (stringTest.substring(0, 12) === systems.currentSaveGame.currentNodeKey) {
+    // TODO: Refactor to not have to search through all data
+    for (const i in choicesData) {
+      stringTest = choicesData[i].KEY;
+      if (stringTest.substring(0, 12) === currentNodeKey) {
         if (this.checkChoice(i)) {
-          loadedChoices.push(i);
+          choices.push(choicesData[i]);
         }
       }
     }
-
-    choicesTextGroup.y = 0; // reset y position of the text group
-
-    if (loadedChoices.length === 1) {
-      choice1.setText(continueText);
-      choice1.y = frame02YPos;
-      choicesColorArray.push(choice1.fill);
-      this.fadeInChoice(choice1, textFadeInLength);
-      choice2.setText('');
-      choice3.setText('');
-      choice4.setText('');
-      choice5.setText('');
-      choicesHeight = choice1.height;
-    } else if (loadedChoices.length === 2) {
-      choice1.setText(globals.currentModuleChoicesData[loadedChoices[0]].text);
-      choice1.y = frame02YPos;
-      choicesColorArray.push(choice1.fill);
-      this.fadeInChoice(choice1, textFadeInLength);
-      choice2.setText(globals.currentModuleChoicesData[loadedChoices[1]].text);
-      choice2.y = frame02YPos + choice1.height + choicesSpacer;
-      choicesColorArray.push(choice2.fill);
-      this.fadeInChoice(choice2, textFadeInLength + choicesFadeInLength);
-      choice3.setText('');
-      choice4.setText('');
-      choice5.setText('');
-      choicesHeight = choice1.height + choice2.height + choicesSpacer;
-    } else if (loadedChoices.length === 3) {
-      choice1.setText(globals.currentModuleChoicesData[loadedChoices[0]].text);
-      choice1.y = frame02YPos;
-      this.fadeInChoice(choice1, textFadeInLength);
-      choicesColorArray.push(choice1.fill);
-      choice2.setText(globals.currentModuleChoicesData[loadedChoices[1]].text);
-      choice2.y = frame02YPos + choice1.height + choicesSpacer;
-      choicesColorArray.push(choice2.fill);
-      this.fadeInChoice(choice2, textFadeInLength + choicesFadeInLength);
-      choice3.setText(globals.currentModuleChoicesData[loadedChoices[2]].text);
-      choice3.y = frame02YPos + choice1.height + choice2.height + (choicesSpacer * 2);
-      choice3.fill = this.checkChoiceColor(loadedChoices[2]);
-      choicesColorArray.push(choice3.fill);
-      this.fadeInChoice(choice3, textFadeInLength + (2 * choicesFadeInLength));
-      choice4.setText('');
-      choice5.setText('');
-      choicesHeight = choice1.height + choice2.height + choice3.height + (choicesSpacer * 2);
-    } else if (loadedChoices.length === 4) {
-      choice1.setText(globals.currentModuleChoicesData[loadedChoices[0]].text);
-      choice1.y = frame02YPos;
-      choicesColorArray.push(choice1.fill);
-      this.fadeInChoice(choice1, textFadeInLength);
-      choice2.setText(globals.currentModuleChoicesData[loadedChoices[1]].text);
-      choice2.y = frame02YPos + choice1.height + choicesSpacer;
-      choicesColorArray.push(choice2.fill);
-      this.fadeInChoice(choice2, textFadeInLength + choicesFadeInLength);
-      choice3.setText(globals.currentModuleChoicesData[loadedChoices[2]].text);
-      choice3.y = frame02YPos + choice1.height + choice2.height + (choicesSpacer * 2);
-      choice3.fill = this.checkChoiceColor(loadedChoices[2]);
-      choicesColorArray.push(choice3.fill);
-      this.fadeInChoice(choice3, textFadeInLength + (2 * choicesFadeInLength));
-      choice4.setText(globals.currentModuleChoicesData[loadedChoices[3]].text);
-      choice4.y = frame02YPos + choice1.height + choice2.height + choice3.height + (choicesSpacer * 3);
-      choice4.fill = this.checkChoiceColor(loadedChoices[3]);
-      choicesColorArray.push(choice4.fill);
-      this.fadeInChoice(choice4, textFadeInLength + (3 * choicesFadeInLength));
-      choice5.setText('');
-      choicesHeight = choice1.height + choice2.height + choice3.height + choice4.height + (choicesSpacer * 3);
-    } else if (loadedChoices.length === 5) {
-      choice1.setText(globals.currentModuleChoicesData[loadedChoices[0]].text);
-      choice1.y = frame02YPos;
-      choicesColorArray.push(choice1.fill);
-      this.fadeInChoice(choice1, textFadeInLength);
-      choice2.setText(globals.currentModuleChoicesData[loadedChoices[1]].text);
-      choice2.y = frame02YPos + choice1.height + choicesSpacer;
-      choicesColorArray.push(choice2.fill);
-      this.fadeInChoice(choice2, textFadeInLength + choicesFadeInLength);
-      choice3.setText(globals.currentModuleChoicesData[loadedChoices[2]].text);
-      choice3.y = frame02YPos + choice1.height + choice2.height + (choicesSpacer * 2);
-      choice3.fill = this.checkChoiceColor(loadedChoices[2]);
-      choicesColorArray.push(choice3.fill);
-      this.fadeInChoice(choice3, textFadeInLength + (2 * choicesFadeInLength));
-      choice4.setText(globals.currentModuleChoicesData[loadedChoices[3]].text);
-      choice4.y = frame02YPos + choice1.height + choice2.height + choice3.height + (choicesSpacer * 3);
-      choice4.fill = this.checkChoiceColor(loadedChoices[3]);
-      choicesColorArray.push(choice4.fill);
-      this.fadeInChoice(choice4, textFadeInLength + (3 * choicesFadeInLength));
-      choice5.setText(globals.currentModuleChoicesData[loadedChoices[4]].text);
-      choice5.y = frame02YPos + choice1.height + choice2.height + choice3.height + +choice4.height + (choicesSpacer * 4);
-      choice5.fill = this.checkChoiceColor(loadedChoices[4]);
-      choicesColorArray.push(choice5.fill);
-      this.fadeInChoice(choice5, textFadeInLength + (4 * choicesFadeInLength));
-      choicesHeight = choice1.height + choice2.height + choice3.height + choice4.height + choice5.height + (choicesSpacer * 4);
-    } else {
-      // error
-      alert('ERROR: loadedChoices.length is out of bounds');
-    }
+    
+    choices = this.addColorClasses(choices);
+    store.dispatch(setChoices(choices));
   }
 
-  checkChoice(choiceArrayKey) {
-    if (globals.currentModuleChoicesData[choiceArrayKey].karmaCost !== '' && globals.currentModuleChoicesData[choiceArrayKey].karmaCost !== null && globals.currentModuleChoicesData[choiceArrayKey].karmaCost !== undefined) {
-      if (systems.currentSaveGame.playerKarma >= this.parseChoiceCost(globals.currentModuleChoicesData[choiceArrayKey].karmaCost)) {
+  // Choices in this game can have a cost based on collected points or other
+  // variable requirements. This method checks if a choice is available to the
+  // player based on the player's current points and past decisions (playerVariables).
+  static checkChoice(choiceKey) {
+    const choice = store.getState().data.choicesData[choiceKey];
+    const playerPoints = store.getState().points;
+
+    // Empty string '', null, undefined, and 0 are all falsy.
+    // Choice costs in JSON data are defined using keywords like "mini01"
+    // which are parsed and converted to integers based on imported constants.
+    if (choice.karmaCost) {
+      if (playerPoints.karma >= this.parseChoiceCost(choice.karmaCost)) {
         return true;
       } else {
         return false;
       }
-    } else if (globals.currentModuleChoicesData[choiceArrayKey].powerCost !== '' && globals.currentModuleChoicesData[choiceArrayKey].powerCost !== null && globals.currentModuleChoicesData[choiceArrayKey].powerCost !== undefined) {
-      if (systems.currentSaveGame.playerPower >= this.parseChoiceCost(globals.currentModuleChoicesData[choiceArrayKey].powerCost)) {
+    } else if (choice.powerCost) {
+      if (playerPoints.power >= this.parseChoiceCost(choice.powerCost)) {
         return true;
       } else {
         return false;
       }
-    } else if (globals.currentModuleChoicesData[choiceArrayKey].intellectCost !== '' && globals.currentModuleChoicesData[choiceArrayKey].intellectCost !== null && globals.currentModuleChoicesData[choiceArrayKey].intellectCost !== undefined) {
-      if (systems.currentSaveGame.playerIntellect >= this.parseChoiceCost(globals.currentModuleChoicesData[choiceArrayKey].intellectCost)) {
+    } else if (choice.intellectCost) {
+      if (playerPoints.intellect >= this.parseChoiceCost(choice.intellectCost)) {
         return true;
       } else {
         return false;
       }
-    } else if (globals.currentModuleChoicesData[choiceArrayKey].loveCost !== '' && globals.currentModuleChoicesData[choiceArrayKey].loveCost !== null && globals.currentModuleChoicesData[choiceArrayKey].loveCost !== undefined) {
-      if (systems.currentSaveGame.playerLove >= this.parseChoiceCost(globals.currentModuleChoicesData[choiceArrayKey].loveCost)) {
+    } else if (choice.loveCost) {
+      if (playerPoints.love >= this.parseChoiceCost(choice.loveCost)) {
         return true;
       } else {
         return false;
       }
-    } else if (globals.currentModuleChoicesData[choiceArrayKey].darkTetradCost !== '' && globals.currentModuleChoicesData[choiceArrayKey].darkTetradCost !== null && globals.currentModuleChoicesData[choiceArrayKey].darkTetradCost !== undefined) {
-      if (systems.currentSaveGame.playerDarkTetrad >= this.parseChoiceCost(globals.currentModuleChoicesData[choiceArrayKey].powerDarkTetrad)) {
+    } else if (choice.darkTetradCost) {
+      if (playerPoints.darkTetrad >= this.parseChoiceCost(choice.powerDarkTetrad)) {
         return true;
       } else {
         return false;
       }
-    } else if (globals.currentModuleChoicesData[choiceArrayKey].additionalVariableCostA_Key !== '' && globals.currentModuleChoicesData[choiceArrayKey].additionalVariableCostA_Key !== null && globals.currentModuleChoicesData[choiceArrayKey].additionalVariableCostA_Key !== undefined) { // CHECK FOR ADDITIONAL VARIABLES
-      if (globals.currentModuleChoicesData[choiceArrayKey].additionalVariableCostB_Key !== '' && globals.currentModuleChoicesData[choiceArrayKey].additionalVariableCostB_Key !== null && globals.currentModuleChoicesData[choiceArrayKey].additionalVariableCostB_Key !== undefined) {
+    // Check additional variables (playerVariables).
+    // Is this choice available to the player based on their past decisions?
+    } else if (choice.additionalVariableCostA_Key) {
+      const condition1 = this.checkPlayerVariables(
+        choice.additionalVariableCostA_Key,
+        choice.additionalVariableCostA_Equivalence,
+        choice.additionalVariableCostA_Value);
+
+      if (choice.additionalVariableCostB_Key) {
         // There are two additional variable costs
-        if (globals.currentModuleChoicesData[choiceArrayKey].additionalVariableCost_Operator === '&&') {
-          if (systems.currentSaveGame.checkGameVariables(globals.currentModuleChoicesData[choiceArrayKey].additionalVariableCostA_Key, globals.currentModuleChoicesData[choiceArrayKey].additionalVariableCostA_Equivalence, globals.currentModuleChoicesData[choiceArrayKey].additionalVariableCostA_Value) && systems.currentSaveGame.checkGameVariables(globals.currentModuleChoicesData[choiceArrayKey].additionalVariableCostB_Key, globals.currentModuleChoicesData[choiceArrayKey].additionalVariableCostB_Equivalence, globals.currentModuleChoicesData[choiceArrayKey].additionalVariableCostB_Value)) {
+
+        const condition2 = this.checkPlayerVariables(
+          choice.additionalVariableCostB_Key,
+          choice.additionalVariableCostB_Equivalence,
+          choice.additionalVariableCostB_Value);
+
+        if (choice.additionalVariableCost_Operator === '&&') {
+          if (condition1 && condition2) {
             return true;
           } else {
             return false;
           }
-        } else if (globals.currentModuleChoicesData[choiceArrayKey].additionalVariableCost_Operator === '||') {
-          if (systems.currentSaveGame.checkGameVariables(globals.currentModuleChoicesData[choiceArrayKey].additionalVariableCostA_Key, globals.currentModuleChoicesData[choiceArrayKey].additionalVariableCostA_Equivalence, globals.currentModuleChoicesData[choiceArrayKey].additionalVariableCostA_Value) || systems.currentSaveGame.checkGameVariables(globals.currentModuleChoicesData[choiceArrayKey].additionalVariableCostB_Key, globals.currentModuleChoicesData[choiceArrayKey].additionalVariableCostB_Equivalence, globals.currentModuleChoicesData[choiceArrayKey].additionalVariableCostB_Value)) {
+        } else if (choice.additionalVariableCost_Operator === '||') {
+          if (condition1 || condition2) {
             return true;
           } else {
             return false;
@@ -249,63 +175,76 @@ export default class {
         }
       } else {
         // There's only one additional variable cost
-        if (systems.currentSaveGame.checkGameVariables(globals.currentModuleChoicesData[choiceArrayKey].additionalVariableCostA_Key, globals.currentModuleChoicesData[choiceArrayKey].additionalVariableCostA_Equivalence, globals.currentModuleChoicesData[choiceArrayKey].additionalVariableCostA_Value)) {
+        if (condition1) {
           return true;
         } else {
           return false;
         }
       }
     } else {
-      // there are no costs for this choice, so return true
+      // There are no costs for this choice, so return true
       return true;
     }
   }
 
-  checkChoiceColor(choiceArrayKey) {
-    // returns what color the text should be
-    if (globals.currentModuleChoicesData[choiceArrayKey].karmaCost !== '') {
-      return fontColorKarma;
-    } else if (globals.currentModuleChoicesData[choiceArrayKey].powerCost !== '') {
-      return fontColorPower;
-    } else if (globals.currentModuleChoicesData[choiceArrayKey].intellectCost !== '') {
-      return fontColorIntellect;
-    } else if (globals.currentModuleChoicesData[choiceArrayKey].loveCost !== '') {
-      return fontColorLove;
-    } else if (globals.currentModuleChoicesData[choiceArrayKey].darkTetradCost !== '') {
-      return fontColorDarkTetrad;
-    } else {
-      return choiceColor;
-    }
+  // Adds class names to choices for what color the text should be.
+  // These are the classNames that should be attached to the choices in React.
+  static addColorClasses(choicesArray) {
+    let newChoicesArray = [];
+
+    // Iterate through array of choices, add colorClass property
+    // based on point cost, and return new array of choices.
+    choicesArray.forEach(choice => {    
+
+      if (choice.karmaCost) {
+        choice.colorClass = 'colorKarma';
+      } else if (choice.powerCost) {
+        choice.colorClass = 'colorKarma';
+      } else if (choice.intellectCost) {
+        choice.colorClass = 'colorKarma';
+      } else if (choice.loveCost) {
+        choice.colorClass = 'colorKarma';
+      } else if (choice.darkTetradCost) {
+        choice.colorClass = 'colorKarma';
+      } else {
+        choice.colorClass = 'colorChoice';
+      }
+
+      newChoicesArray.push(choice);
+    });
+
+    return newChoicesArray;
   }
 
-  parseChoiceCost(stringToParse) {
-    if (stringToParse === 'mini01') {
-      return constants.POINT_COST_MINI_01;
-    } else if (stringToParse === 'mini02') {
-      return constants.POINT_COST_MINI_02;
-    } else if (stringToParse === 'mini03') {
-      return constants.POINT_COST_MINI_03;
-    } else if (stringToParse === 'moderate01') {
-      return constants.POINT_COST_MODERATE_01;
-    } else if (stringToParse === 'moderate02') {
-      return constants.POINT_COST_MODERATE_02;
-    } else if (stringToParse === 'moderate03') {
-      return constants.POINT_COST_MODERATE_03;
-    } else if (stringToParse === 'heavy01') {
-      return constants.POINT_COST_HEAVY_01;
-    } else if (stringToParse === 'heavy02') {
-      return constants.POINT_COST_HEAVY_02;
-    } else if (stringToParse === 'heavy03') {
-      return constants.POINT_COST_HEAVY_03;
-    } else if (stringToParse === 'mega01') {
-      return constants.POINT_COST_MEGA_01;
-    } else if (stringToParse === 'mega02') {
-      return constants.POINT_COST_MEGA_02;
-    } else if (stringToParse === 'mega03') {
-      return constants.POINT_COST_MEGA_03;
-    } else {
-      return 0;
-    }
+  static parseChoiceCost(stringToParse) {
+    switch (stringToParse) {
+      case 'mini01':
+        return constants.POINT_COST_MINI_01;
+      case 'mini02':
+        return constants.POINT_COST_MINI_02;
+      case 'mini03':
+        return constants.POINT_COST_MINI_03;
+      case 'moderate01':
+        return constants.POINT_COST_MODERATE_01;
+      case 'moderate02':
+        return constants.POINT_COST_MODERATE_02;
+      case 'moderate03':
+        return constants.POINT_COST_MODERATE_03;
+      case 'heavy01':
+        return constants.POINT_COST_HEAVY_01;
+      case 'heavy02':
+        return constants.POINT_COST_HEAVY_02;
+      case 'heavy03':
+        return constants.POINT_COST_HEAVY_03;
+      case 'mega01':
+        return constants.POINT_COST_MEGA_01;
+      case 'mega02':
+        return constants.POINT_COST_MEGA_02;
+      case 'mega03':
+        return constants.POINT_COST_MEGA_03;
+      default:
+        return 0;
+      }
   }
 
   parseChoiceBoost(stringToParse) {
@@ -326,9 +265,85 @@ export default class {
     }
   }
 
+  // This method checks for additional variables in the playerVariables object.
+  // It checks on the player's past decisions based on a reference (the variable cost key),
+  // the equivalence (logical operator), and value to be checked for. It then
+  // returns a boolean (true or false) result.
+  static checkPlayerVariables(reference, equivalence, value) {
+    const playerVariables = store.getState().variables.playerVariables;
+    const defaultValue = 0;
+
+    // Search for reference and value pair in playerVariables object.
+    // If found, checks for whether it's >, <, etc. to the value provided.
+    // If it doesn't pass the test to the value, or if not found, it returns false.
+    
+    // Empty string, null, undefined, and 0 are all falsy
+    if (!equivalence) {
+      // Just search for whether the additional variable is present - value doesn't matter
+      return (reference in playerVariables);
+    } else if (equivalence === '=') {
+      // Check for presence of variable and value
+      return (playerVariables[reference] === value);
+    } else if (equivalence === '!=' && (!value)) {
+      // Checks if the additional variable is present at all and returns false if present, true if not
+      // - opposite of first check in this series. e.g. if !(01JennethDead), then returns true.
+      return !(reference in playerVariables);
+    } else if (equivalence === '!=' && (value)) {
+      if (reference in playerVariables && playerVariables[reference] !== value) {
+        return true;
+      } else if (value !== defaultValue) {
+        // Variable not found, so assume default value (0)
+        return true;
+      } else {
+        return false;
+      }
+    } else if (equivalence === '<') {
+      if (reference in playerVariables && playerVariables[reference] < value) {
+        return true;
+      } else if (value < defaultValue) {
+        // Variable not found, so assume default value (0)
+        return true;
+      } else {
+        return false;
+      }
+    } else if (equivalence === '<=') {
+      if (reference in playerVariables && playerVariables[reference] <= value) {
+        return true;
+      } else if (value <= defaultValue) {
+        // Variable not found, so assume default value (0)
+        return true;
+      } else {
+        return false;
+      }
+    } else if (equivalence === '>') {
+      if (reference in playerVariables && playerVariables[reference] > value) {
+        return true;
+      } else if (value > defaultValue) {
+        // Variable not found, so assume default value (0)
+        return true;
+      } else {
+        return false;
+      }
+    } else if (equivalence === '>=') {
+      if (reference in playerVariables && playerVariables[reference] >= value) {
+        return true;
+      } else if (value >= defaultValue) {
+        // Variable not found, so assume default value (0)
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      // In case anything goes wrong, defaults to returning false
+      console.log('%c checkPlayerVariables() error ', 'color:white; background:red;');
+      return false;
+    }
+  }
+
   makeDecision(choiceNumber) {
     systems.currentSaveGame.writeToGameLog(systems.currentSaveGame.currentNodeKey, choiceNumber);
 
+    // TODO: load choices from store - store.getState().text.choices
     var tempReference = loadedChoices[choiceNumber - 1]; // -1 because starts with 0, so choice 1 is key 0 in the array
 
     // ------------------Adjust player spirit points------------------
@@ -531,29 +546,29 @@ export default class {
       if (loadedLinkNodes[i].variable1 !== 'ELSE') {
         if (loadedLinkNodes[i].variable2 === '' || loadedLinkNodes[i].variable2 === null || loadedLinkNodes[i].variable2 === undefined) {
           // then just check for variable1
-          if (systems.currentSaveGame.checkGameVariables(loadedLinkNodes[i].variable1, loadedLinkNodes[i].equivalence1, loadedLinkNodes[i].value1)) {
+          if (this.checkPlayerVariables(loadedLinkNodes[i].variable1, loadedLinkNodes[i].equivalence1, loadedLinkNodes[i].value1)) {
             test1 = true;
           }
         } else if (loadedLinkNodes[i].variable3 === '' || loadedLinkNodes[i].variable3 === null || loadedLinkNodes[i].variable3 === undefined) {
           // check for variable1 and variable2
-          if (systems.currentSaveGame.checkGameVariables(loadedLinkNodes[i].variable1, loadedLinkNodes[i].equivalence1, loadedLinkNodes[i].value1)) {
+          if (this.checkPlayerVariables(loadedLinkNodes[i].variable1, loadedLinkNodes[i].equivalence1, loadedLinkNodes[i].value1)) {
             test1 = true;
           }
 
-          if (systems.currentSaveGame.checkGameVariables(loadedLinkNodes[i].variable2, loadedLinkNodes[i].equivalence2, loadedLinkNodes[i].value2)) {
+          if (this.checkPlayerVariables(loadedLinkNodes[i].variable2, loadedLinkNodes[i].equivalence2, loadedLinkNodes[i].value2)) {
             test2 = true;
           }
         } else {
           // check for variable1, variable2, and variable3
-          if (systems.currentSaveGame.checkGameVariables(loadedLinkNodes[i].variable1, loadedLinkNodes[i].equivalence1, loadedLinkNodes[i].value1)) {
+          if (this.checkPlayerVariables(loadedLinkNodes[i].variable1, loadedLinkNodes[i].equivalence1, loadedLinkNodes[i].value1)) {
             test1 = true;
           }
 
-          if (systems.currentSaveGame.checkGameVariables(loadedLinkNodes[i].variable2, loadedLinkNodes[i].equivalence2, loadedLinkNodes[i].value2)) {
+          if (this.checkPlayerVariables(loadedLinkNodes[i].variable2, loadedLinkNodes[i].equivalence2, loadedLinkNodes[i].value2)) {
             test2 = true;
           }
 
-          if (systems.currentSaveGame.checkGameVariables(loadedLinkNodes[i].variable3, loadedLinkNodes[i].equivalence3, loadedLinkNodes[i].value3)) {
+          if (this.checkPlayerVariables(loadedLinkNodes[i].variable3, loadedLinkNodes[i].equivalence3, loadedLinkNodes[i].value3)) {
             test3 = true;
           }
         }
