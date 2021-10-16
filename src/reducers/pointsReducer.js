@@ -1,13 +1,11 @@
 import { RESET_POINTS, CHANGE_POINTS } from '../actions/pointsActions';
 
 const initialState = {
-  playerPoints: {
-    power: 0,
-    karma: 0,
-    darkTetrad: 0,
-    intellect: 0,
-    love: 0,
-  }
+  power: 0,
+  karma: 0,
+  darkTetrad: 0,
+  intellect: 0,
+  love: 0,
 }
 
 const pointsReducer = (state = initialState, action) => {
@@ -17,15 +15,19 @@ const pointsReducer = (state = initialState, action) => {
   switch(action.type) {
     case RESET_POINTS:
       nextState = Object.assign({}, state);
-      nextState.playerPoints = initialState.playerPoints;
+      nextState.power = initialState.power;
+      nextState.karma = initialState.karma;
+      nextState.darkTetrad = initialState.darkTetrad;
+      nextState.intellect = initialState.intellect;
+      nextState.love = initialState.love;
       return nextState;
     case CHANGE_POINTS:
       nextState = Object.assign({}, state);
-      nextState.playerPoints.power += action.power;
-      nextState.playerPoints.karma += action.karma;
-      nextState.playerPoints.darkTetrad += action.darkTetrad;
-      nextState.playerPoints.intellect += action.intellect;
-      nextState.playerPoints.love += action.love;
+      nextState.power += action.power;
+      nextState.karma += action.karma;
+      nextState.darkTetrad += action.darkTetrad;
+      nextState.intellect += action.intellect;
+      nextState.love += action.love;
       return nextState;
     default:
       return state;
