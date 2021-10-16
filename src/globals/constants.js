@@ -35,5 +35,8 @@ export default {
 
   POINT_COST_MEGA_01: 75,
   POINT_COST_MEGA_02: 100,
-  POINT_COST_MEGA_03: 150
+  POINT_COST_MEGA_03: 150,
+
+  CONTINUE_TEXT: 'Continue...',
+  DEATH_TEXT: 'You died.'
 };

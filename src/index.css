@@ -54,7 +54,7 @@ h4.menu-tagline {
 }
 
 .menu-list a:hover {
-  color: rgb(128, 239, 253);  
+  color: #80EEFD;  
 }
 
 .menu-list h3 {
@@ -109,4 +109,52 @@ h4.menu-tagline {
 
 .game-choices-info {
   font-weight: 700;
+}
+
+.color-karma {
+  color: #12B516;
+}
+
+.color-karma:hover {
+  color: #0f8a11;
+}
+
+.color-power {
+  color: #F45E14;
+}
+
+.color-power:hover {
+  color: #c34608;
+}
+
+.color-intellect {
+  color: #00B0FF;
+}
+
+.color-intellect:hover {
+  color: #0087c5;
+}
+
+.color-love {
+  color: #FC32DA;
+}
+
+.color-love:hover {
+  color: #cc13ad;
+}
+
+.color-dark-tetrad {
+  color: #E60B1A;
+}
+
+.color-dark-tetrad:hover {
+  color: #ad0510;
+}
+
+.color-choice {
+  color: #FFFFFF;
+}
+
+.color-choice:hover {
+  color: #80EEFD;
 }

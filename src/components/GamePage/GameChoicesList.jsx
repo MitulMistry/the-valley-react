@@ -5,6 +5,7 @@ import { GameChoiceItem } from './GameChoiceItem';
 export class GameChoicesList extends React.Component {
   render() {
     const { choices } = this.props;
+    
     const gameChoiceItems = choices.map((choice, i) => (
         <GameChoiceItem
           key={i}

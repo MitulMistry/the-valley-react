@@ -92,7 +92,11 @@ export default class {
       stringTest = choicesData[i].KEY;
       if (stringTest.substring(0, 12) === currentNodeKey) {
         if (this.checkChoice(i)) {
-          choices.push(choicesData[i]);
+          const choice = {
+            key: choicesData[i].KEY,
+            text: choicesData[i].text
+          };
+          choices.push(choice);
         }
       }
     }
@@ -197,17 +201,17 @@ export default class {
     choicesArray.forEach(choice => {    
 
       if (choice.karmaCost) {
-        choice.colorClass = 'colorKarma';
+        choice.colorClass = 'color-karma';
       } else if (choice.powerCost) {
-        choice.colorClass = 'colorKarma';
+        choice.colorClass = 'color-power';
       } else if (choice.intellectCost) {
-        choice.colorClass = 'colorKarma';
+        choice.colorClass = 'color-intellect';
       } else if (choice.loveCost) {
-        choice.colorClass = 'colorKarma';
+        choice.colorClass = 'color-love';
       } else if (choice.darkTetradCost) {
-        choice.colorClass = 'colorKarma';
+        choice.colorClass = 'color-dark-tetrad';
       } else {
-        choice.colorClass = 'colorChoice';
+        choice.colorClass = 'color-choice';
       }
 
       newChoicesArray.push(choice);
