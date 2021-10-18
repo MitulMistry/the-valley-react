@@ -13,6 +13,9 @@ Sample application deployed on Heroku: https://the-valley.herokuapp.com/ -->
 - Player tracking: Keeps a record of choices made and makes data available to affect future decisions and open or close branching storylines.
 - Load stories through JSON: Uses static JSON files to load the stories and player choices along with associated variables. Stories can be created in spreadsheets/CSV files, but must be manually converted to JSON before loading in application.
 
+## Redux
+- The store saves to browser storage and loads from there when visiting the application again. For making changes or trouble shooting, try clearing the browser history before reloading the application to start with a fresh state.
+
 ## Application Info
 Project initialized with [Create React App](https://github.com/facebook/create-react-app).
 <!-- Project set up according to [phaser-es6-webpack](https://github.com/lean/phaser-es6-webpack). Configured with [Node Package Manager](https://www.npmjs.com/), [Webpack](https://webpack.js.org/), and [Babel](https://babeljs.io/). -->

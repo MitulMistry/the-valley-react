@@ -1,4 +1,7 @@
 import { setText, setChoices } from '../actions/textActions';
+import { addToLog, setCurrentNodeKey } from '../actions/gameLogActions';
+import { changePoints } from '../actions/pointsActions';
+import { setVariables } from '../actions/variablesActions';
 
 // Import Redux store from index.js where it is created.
 // Store can be accessed with .getState() and can .dispatch() actions.
@@ -8,64 +11,6 @@ import globals from '../globals/globals';
 import constants from '../globals/constants';
 import systems from '../globals/systems';
 
-// global variables
-var storyText;
-
-var choice1;
-var choice2;
-var choice3;
-var choice4;
-var choice5;
-var loadedChoices = []; // array of index numbers to be used in the loaded JSON choice data object
-var choicesColorArray = []; // array of colors for each choice # to reference which color to return to after a mouse over
-var continueText = 'Continue...'; // Text to show when the choice is only to continue
-
-var choicesTextGroup;
-var textPointsPower;
-var textPointsKarma;
-var textPointsIntellect;
-var textPointsLove;
-var textPointsDarkTetrad;
-
-var storyText;
-var slider01;
-var slider02;
-var slider01back;
-var slider02back;
-
-var choicesHeight = 100;
-var choicesSpacer = 15;
-var textFadeInLength = 500;
-var choicesFadeInLength = 200;
-
-var rightSliderGap01;
-var text01Distance;
-var text01TopGap;
-
-var rightSliderGap02;
-var text02Distance;
-var text02TopGap;
-
-var frame01Width;
-var frame01Height;
-var frame01XPos;
-var frame01YPos;
-
-var frame02Width;
-var frame02Height;
-var frame02XPos;
-var frame02YPos;
-
-var textMask01;
-var textMask02;
-
-var mainFont = '500 12.5pt Fira Sans'; // 13pt
-var choiceColor = '#FFFFFF';
-var fontColorPower = '#F45E14';
-var fontColorKarma = '#12B516';
-var fontColorIntellect = '#00B0FF';
-var fontColorLove = '#FC32DA';
-var fontColorDarkTetrad = '#E60B1A';
 
 export default class {
   
@@ -76,7 +21,16 @@ export default class {
 
   static loadText() {
     const key = store.getState().game.currentNodeKey;
-    const text = store.getState().data.textData[key];
+    let text = '';
+
+    if (key === 'DEATH') {
+      text = constants.DEATH_TEXT;
+    } else if (key === 'END') {
+      text = constants.END_TEXT;
+    } else {
+      text = store.getState().data.textData[key];
+    }
+
     store.dispatch(setText(text));
   }
 
@@ -87,7 +41,7 @@ export default class {
     const currentNodeKey = store.getState().game.currentNodeKey;
     const choicesData = store.getState().data.choicesData;
 
-    // TODO: Refactor to not have to search through all data
+    // TODO: Redesign to not have to search through all data
     for (const i in choicesData) {
       stringTest = choicesData[i].KEY;
       if (stringTest.substring(0, 12) === currentNodeKey) {
@@ -220,6 +174,7 @@ export default class {
     return newChoicesArray;
   }
 
+  // Convert text values for point costs to numerical values based on constants
   static parseChoiceCost(stringToParse) {
     switch (stringToParse) {
       case 'mini01':
@@ -248,24 +203,26 @@ export default class {
         return constants.POINT_COST_MEGA_03;
       default:
         return 0;
-      }
+    }
   }
 
-  parseChoiceBoost(stringToParse) {
-    if (stringToParse === 'small') {
-      return constants.POINT_BOOST_SMALL;
-    } else if (stringToParse === 'medium') {
-      return constants.POINT_BOOST_MEDIUM;
-    } else if (stringToParse === 'large') {
-      return constants.POINT_BOOST_LARGE;
-    } else if (stringToParse === 'large02') {
-      return constants.POINT_BOOST_LARGE02;
-    } else if (stringToParse === 'huge') {
-      return constants.POINT_BOOST_HUGE;
-    } else if (stringToParse === 'jackpot') {
-      return constants.POINT_BOOST_JACKPOT;
-    } else {
-      return 0;
+  // Convert text values for point boosts to numerical values based on constants
+  static parseChoiceBoost(stringToParse) {
+    switch (stringToParse) {
+      case 'small':
+        return constants.POINT_BOOST_SMALL;
+      case 'medium':
+        return constants.POINT_BOOST_MEDIUM;
+      case 'large':
+        return constants.POINT_BOOST_LARGE;
+      case 'large02':
+        return constants.POINT_BOOST_LARGE02;
+      case 'huge':
+        return constants.POINT_BOOST_HUGE;
+      case 'jackpot':
+        return constants.POINT_BOOST_JACKPOT;
+      default:
+        return 0;
     }
   }
 
@@ -344,344 +301,417 @@ export default class {
     }
   }
 
-  makeDecision(choiceNumber) {
-    systems.currentSaveGame.writeToGameLog(systems.currentSaveGame.currentNodeKey, choiceNumber);
+  // Write story node decision to gameLog.
+  // Dispatch action using Redux.
+  static writeToGameLog(textNodeKey, choiceNodeKey) {
+    store.dispatch(addToLog(textNodeKey, choiceNodeKey));
+  }
 
-    // TODO: load choices from store - store.getState().text.choices
-    var tempReference = loadedChoices[choiceNumber - 1]; // -1 because starts with 0, so choice 1 is key 0 in the array
+  static makeDecision(choiceNodeKey) {
+    const currentNodeKey = store.getState().game.currentNodeKey;
+    console.log(choiceNodeKey);
+    this.writeToGameLog(currentNodeKey, choiceNodeKey);
+
+    const choice = store.getState().data.choicesData[choiceNodeKey];
 
     // ------------------Adjust player spirit points------------------
-    this.adjustPlayerPoints(globals.currentModuleChoicesData[tempReference].karmaBoost, globals.currentModuleChoicesData[tempReference].intellectBoost, globals.currentModuleChoicesData[tempReference].loveBoost, globals.currentModuleChoicesData[tempReference].powerBoost, globals.currentModuleChoicesData[tempReference].darkTetradBoost, globals.currentModuleChoicesData[tempReference].additionalVariableBoostA_Key, globals.currentModuleChoicesData[tempReference].additionalVariableBoostA_Value, globals.currentModuleChoicesData[tempReference].additionalVariableBoostB_Key, globals.currentModuleChoicesData[tempReference].additionalVariableBoostB_Value);
+    this.adjustPlayerPoints(choice.karmaBoost, choice.intellectBoost, choice.loveBoost, choice.powerBoost, choice.darkTetradBoost, choice.additionalVariableBoostA_Key, choice.additionalVariableBoostA_Value, choice.additionalVariableBoostB_Key, choice.additionalVariableBoostB_Value);
 
     // ------------------Randomize destinations------------------
+    let dieRollDestinationA;
+    let dieRollDestinationB;
+    let dieRollDestinationC;
+    let dieRollDestinationD;
 
-    var dieRollDestinationA;
-    var dieRollDestinationB;
-    var dieRollDestinationC;
-    var dieRollDestinationD;
+    // Empty string, null, undefined, and 0 are all falsy.
+    if (!choice.destinationA_percentage) {
+      // There's only one destination, go to destinationA.
+      this.adjustPlayerPoints(choice.destinationA_karmaBoost, choice.destinationA_intellectBoost, choice.destinationA_loveBoost, choice.destinationA_powerBoost, choice.destinationA_darkTetradBoost, choice.destinationA_additionalVariableBoostA_Key, choice.destinationA_additionalVariableBoostA_Value, choice.destinationA_additionalVariableBoostB_Key, choice.destinationA_additionalVariableBoostB_Value);
 
-    // alert(globals.currentModuleChoicesData[tempReference].destinationA_percentage);
-
-    if (globals.currentModuleChoicesData[tempReference].destinationA_percentage === null || globals.currentModuleChoicesData[tempReference].destinationA_percentage === '' || globals.currentModuleChoicesData[tempReference].destinationA_percentage === undefined) {
-      // There's only one destination, go to destinationA
-      this.adjustPlayerPoints(globals.currentModuleChoicesData[tempReference].destinationA_karmaBoost, globals.currentModuleChoicesData[tempReference].destinationA_intellectBoost, globals.currentModuleChoicesData[tempReference].destinationA_loveBoost, globals.currentModuleChoicesData[tempReference].destinationA_powerBoost, globals.currentModuleChoicesData[tempReference].destinationA_darkTetradBoost, globals.currentModuleChoicesData[tempReference].destinationA_additionalVariableBoostA_Key, globals.currentModuleChoicesData[tempReference].destinationA_additionalVariableBoostA_Value, globals.currentModuleChoicesData[tempReference].destinationA_additionalVariableBoostB_Key, globals.currentModuleChoicesData[tempReference].destinationA_additionalVariableBoostB_Value);
-
-      this.loadStoryNode(globals.currentModuleChoicesData[tempReference].destinationA);
-    } else if (globals.currentModuleChoicesData[tempReference].destinationC_percentage === null || globals.currentModuleChoicesData[tempReference].destinationC_percentage === '' || globals.currentModuleChoicesData[tempReference].destinationC_percentage === undefined) {
-      // There's no third destination, so it's between destinationA and destinationB
-      dieRollDestinationA = (Math.floor(Math.random() * 100) + 1) * globals.currentModuleChoicesData[tempReference].destinationA_percentage;
-      dieRollDestinationB = (Math.floor(Math.random() * 100) + 1) * globals.currentModuleChoicesData[tempReference].destinationB_percentage;
+      this.loadStoryNode(choice.destinationA);
+    } else if (!choice.destinationC_percentage) {
+      // There's no third destination, so it's between destinationA and destinationB.
+      // Can't just check second destination percentage, because there may or may not be a third.
+      dieRollDestinationA = this.rollDie() * choice.destinationA_percentage;
+      dieRollDestinationB = this.rollDie() * choice.destinationB_percentage;
 
       if (dieRollDestinationA > dieRollDestinationB) {
         // go to destinationA
-        this.adjustPlayerPoints(globals.currentModuleChoicesData[tempReference].destinationA_karmaBoost, globals.currentModuleChoicesData[tempReference].destinationA_intellectBoost, globals.currentModuleChoicesData[tempReference].destinationA_loveBoost, globals.currentModuleChoicesData[tempReference].destinationA_powerBoost, globals.currentModuleChoicesData[tempReference].destinationA_darkTetradBoost, globals.currentModuleChoicesData[tempReference].destinationA_additionalVariableBoostA_Key, globals.currentModuleChoicesData[tempReference].destinationA_additionalVariableBoostA_Value, globals.currentModuleChoicesData[tempReference].destinationA_additionalVariableBoostB_Key, globals.currentModuleChoicesData[tempReference].destinationA_additionalVariableBoostB_Value);
+        this.adjustPlayerPoints(choice.destinationA_karmaBoost, choice.destinationA_intellectBoost, choice.destinationA_loveBoost, choice.destinationA_powerBoost, choice.destinationA_darkTetradBoost, choice.destinationA_additionalVariableBoostA_Key, choice.destinationA_additionalVariableBoostA_Value, choice.destinationA_additionalVariableBoostB_Key, choice.destinationA_additionalVariableBoostB_Value);
 
-        this.loadStoryNode(globals.currentModuleChoicesData[tempReference].destinationA);
+        this.loadStoryNode(choice.destinationA);
       } else {
         // go to destinationB
-        this.adjustPlayerPoints(globals.currentModuleChoicesData[tempReference].destinationB_karmaBoost, globals.currentModuleChoicesData[tempReference].destinationB_intellectBoost, globals.currentModuleChoicesData[tempReference].destinationB_loveBoost, globals.currentModuleChoicesData[tempReference].destinationB_powerBoost, globals.currentModuleChoicesData[tempReference].destinationB_darkTetradBoost, globals.currentModuleChoicesData[tempReference].destinationB_additionalVariableBoostA_Key, globals.currentModuleChoicesData[tempReference].destinationB_additionalVariableBoostA_Value, globals.currentModuleChoicesData[tempReference].destinationB_additionalVariableBoostB_Key, globals.currentModuleChoicesData[tempReference].destinationB_additionalVariableBoostB_Value);
+        this.adjustPlayerPoints(choice.destinationB_karmaBoost, choice.destinationB_intellectBoost, choice.destinationB_loveBoost, choice.destinationB_powerBoost, choice.destinationB_darkTetradBoost, choice.destinationB_additionalVariableBoostA_Key, choice.destinationB_additionalVariableBoostA_Value, choice.destinationB_additionalVariableBoostB_Key, choice.destinationB_additionalVariableBoostB_Value);
 
-        this.loadStoryNode(globals.currentModuleChoicesData[tempReference].destinationB);
+        this.loadStoryNode(choice.destinationB);
       }
-    } else if (globals.currentModuleChoicesData[tempReference].destinationD_percentage === null || globals.currentModuleChoicesData[tempReference].destinationD_percentage === '') {
-      // There's no fourth destination, so it's between destinationA and destinationB and destinationC
-      dieRollDestinationA = (Math.floor(Math.random() * 100) + 1) * globals.currentModuleChoicesData[tempReference].destinationA_percentage;
-      dieRollDestinationB = (Math.floor(Math.random() * 100) + 1) * globals.currentModuleChoicesData[tempReference].destinationB_percentage;
-      dieRollDestinationC = (Math.floor(Math.random() * 100) + 1) * globals.currentModuleChoicesData[tempReference].destinationC_percentage;
+    } else if (!choice.destinationD_percentage) {
+      // There's no fourth destination, so it's between destinationA, destinationB, and destinationC
+      dieRollDestinationA = this.rollDie() * choice.destinationA_percentage;
+      dieRollDestinationB = this.rollDie() * choice.destinationB_percentage;
+      dieRollDestinationC = this.rollDie() * choice.destinationC_percentage;
 
       if (dieRollDestinationA > dieRollDestinationB && dieRollDestinationA > dieRollDestinationC) {
         // go to destinationA
-        this.adjustPlayerPoints(globals.currentModuleChoicesData[tempReference].destinationA_karmaBoost, globals.currentModuleChoicesData[tempReference].destinationA_intellectBoost, globals.currentModuleChoicesData[tempReference].destinationA_loveBoost, globals.currentModuleChoicesData[tempReference].destinationA_powerBoost, globals.currentModuleChoicesData[tempReference].destinationA_darkTetradBoost, globals.currentModuleChoicesData[tempReference].destinationA_additionalVariableBoostA_Key, globals.currentModuleChoicesData[tempReference].destinationA_additionalVariableBoostA_Value, globals.currentModuleChoicesData[tempReference].destinationA_additionalVariableBoostB_Key, globals.currentModuleChoicesData[tempReference].destinationA_additionalVariableBoostB_Value);
+        this.adjustPlayerPoints(choice.destinationA_karmaBoost, choice.destinationA_intellectBoost, choice.destinationA_loveBoost, choice.destinationA_powerBoost, choice.destinationA_darkTetradBoost, choice.destinationA_additionalVariableBoostA_Key, choice.destinationA_additionalVariableBoostA_Value, choice.destinationA_additionalVariableBoostB_Key, choice.destinationA_additionalVariableBoostB_Value);
 
-        this.loadStoryNode(globals.currentModuleChoicesData[tempReference].destinationA);
+        this.loadStoryNode(choice.destinationA);
       } else if (dieRollDestinationB > dieRollDestinationC) {
         // go to destinationB
-        this.adjustPlayerPoints(globals.currentModuleChoicesData[tempReference].destinationB_karmaBoost, globals.currentModuleChoicesData[tempReference].destinationB_intellectBoost, globals.currentModuleChoicesData[tempReference].destinationB_loveBoost, globals.currentModuleChoicesData[tempReference].destinationB_powerBoost, globals.currentModuleChoicesData[tempReference].destinationB_darkTetradBoost, globals.currentModuleChoicesData[tempReference].destinationB_additionalVariableBoostA_Key, globals.currentModuleChoicesData[tempReference].destinationB_additionalVariableBoostA_Value, globals.currentModuleChoicesData[tempReference].destinationB_additionalVariableBoostB_Key, globals.currentModuleChoicesData[tempReference].destinationB_additionalVariableBoostB_Value);
+        this.adjustPlayerPoints(choice.destinationB_karmaBoost, choice.destinationB_intellectBoost, choice.destinationB_loveBoost, choice.destinationB_powerBoost, choice.destinationB_darkTetradBoost, choice.destinationB_additionalVariableBoostA_Key, choice.destinationB_additionalVariableBoostA_Value, choice.destinationB_additionalVariableBoostB_Key, choice.destinationB_additionalVariableBoostB_Value);
 
-        this.loadStoryNode(globals.currentModuleChoicesData[tempReference].destinationB);
+        this.loadStoryNode(choice.destinationB);
       } else {
         // go to destinationC
-        this.adjustPlayerPoints(globals.currentModuleChoicesData[tempReference].destinationC_karmaBoost, globals.currentModuleChoicesData[tempReference].destinationC_intellectBoost, globals.currentModuleChoicesData[tempReference].destinationC_loveBoost, globals.currentModuleChoicesData[tempReference].destinationC_powerBoost, globals.currentModuleChoicesData[tempReference].destinationC_darkTetradBoost, globals.currentModuleChoicesData[tempReference].destinationC_additionalVariableBoostA_Key, globals.currentModuleChoicesData[tempReference].destinationC_additionalVariableBoostA_Value, globals.currentModuleChoicesData[tempReference].destinationC_additionalVariableBoostB_Key, globals.currentModuleChoicesData[tempReference].destinationC_additionalVariableBoostB_Value);
+        this.adjustPlayerPoints(choice.destinationC_karmaBoost, choice.destinationC_intellectBoost, choice.destinationC_loveBoost, choice.destinationC_powerBoost, choice.destinationC_darkTetradBoost, choice.destinationC_additionalVariableBoostA_Key, choice.destinationC_additionalVariableBoostA_Value, choice.destinationC_additionalVariableBoostB_Key, choice.destinationC_additionalVariableBoostB_Value);
 
-        this.loadStoryNode(globals.currentModuleChoicesData[tempReference].destinationC);
+        this.loadStoryNode(choice.destinationC);
       }
     } else {
       // There are four destinations
-      dieRollDestinationA = (Math.floor(Math.random() * 100) + 1) * globals.currentModuleChoicesData[tempReference].destinationA_percentage;
-      dieRollDestinationB = (Math.floor(Math.random() * 100) + 1) * globals.currentModuleChoicesData[tempReference].destinationB_percentage;
-      dieRollDestinationC = (Math.floor(Math.random() * 100) + 1) * globals.currentModuleChoicesData[tempReference].destinationC_percentage;
-      dieRollDestinationD = (Math.floor(Math.random() * 100) + 1) * globals.currentModuleChoicesData[tempReference].destinationD_percentage;
+      dieRollDestinationA = this.rollDie() * choice.destinationA_percentage;
+      dieRollDestinationB = this.rollDie() * choice.destinationB_percentage;
+      dieRollDestinationC = this.rollDie() * choice.destinationC_percentage;
+      dieRollDestinationD = this.rollDie() * choice.destinationD_percentage;
 
       if (dieRollDestinationA > dieRollDestinationB && dieRollDestinationA > dieRollDestinationC && dieRollDestinationA > dieRollDestinationD) {
         // go to destinationA
-        this.adjustPlayerPoints(globals.currentModuleChoicesData[tempReference].destinationA_karmaBoost, globals.currentModuleChoicesData[tempReference].destinationA_intellectBoost, globals.currentModuleChoicesData[tempReference].destinationA_loveBoost, globals.currentModuleChoicesData[tempReference].destinationA_powerBoost, globals.currentModuleChoicesData[tempReference].destinationA_darkTetradBoost, globals.currentModuleChoicesData[tempReference].destinationA_additionalVariableBoostA_Key, globals.currentModuleChoicesData[tempReference].destinationA_additionalVariableBoostA_Value, globals.currentModuleChoicesData[tempReference].destinationA_additionalVariableBoostB_Key, globals.currentModuleChoicesData[tempReference].destinationA_additionalVariableBoostB_Value);
+        this.adjustPlayerPoints(choice.destinationA_karmaBoost, choice.destinationA_intellectBoost, choice.destinationA_loveBoost, choice.destinationA_powerBoost, choice.destinationA_darkTetradBoost, choice.destinationA_additionalVariableBoostA_Key, choice.destinationA_additionalVariableBoostA_Value, choice.destinationA_additionalVariableBoostB_Key, choice.destinationA_additionalVariableBoostB_Value);
 
-        this.loadStoryNode(globals.currentModuleChoicesData[tempReference].destinationA);
+        this.loadStoryNode(choice.destinationA);
       } else if (dieRollDestinationB > dieRollDestinationC && dieRollDestinationB > dieRollDestinationD) {
         // go to destinationB
-        this.adjustPlayerPoints(globals.currentModuleChoicesData[tempReference].destinationB_karmaBoost, globals.currentModuleChoicesData[tempReference].destinationB_intellectBoost, globals.currentModuleChoicesData[tempReference].destinationB_loveBoost, globals.currentModuleChoicesData[tempReference].destinationB_powerBoost, globals.currentModuleChoicesData[tempReference].destinationB_darkTetradBoost, globals.currentModuleChoicesData[tempReference].destinationB_additionalVariableBoostA_Key, globals.currentModuleChoicesData[tempReference].destinationB_additionalVariableBoostA_Value, globals.currentModuleChoicesData[tempReference].destinationB_additionalVariableBoostB_Key, globals.currentModuleChoicesData[tempReference].destinationB_additionalVariableBoostB_Value);
+        this.adjustPlayerPoints(choice.destinationB_karmaBoost, choice.destinationB_intellectBoost, choice.destinationB_loveBoost, choice.destinationB_powerBoost, choice.destinationB_darkTetradBoost, choice.destinationB_additionalVariableBoostA_Key, choice.destinationB_additionalVariableBoostA_Value, choice.destinationB_additionalVariableBoostB_Key, choice.destinationB_additionalVariableBoostB_Value);
 
-        this.loadStoryNode(globals.currentModuleChoicesData[tempReference].destinationB);
+        this.loadStoryNode(choice.destinationB);
       } else if (dieRollDestinationC > dieRollDestinationD) {
         // go to destinationC
-        this.adjustPlayerPoints(globals.currentModuleChoicesData[tempReference].destinationC_karmaBoost, globals.currentModuleChoicesData[tempReference].destinationC_intellectBoost, globals.currentModuleChoicesData[tempReference].destinationC_loveBoost, globals.currentModuleChoicesData[tempReference].destinationC_powerBoost, globals.currentModuleChoicesData[tempReference].destinationC_darkTetradBoost, globals.currentModuleChoicesData[tempReference].destinationC_additionalVariableBoostA_Key, globals.currentModuleChoicesData[tempReference].destinationC_additionalVariableBoostA_Value, globals.currentModuleChoicesData[tempReference].destinationC_additionalVariableBoostB_Key, globals.currentModuleChoicesData[tempReference].destinationC_additionalVariableBoostB_Value);
+        this.adjustPlayerPoints(choice.destinationC_karmaBoost, choice.destinationC_intellectBoost, choice.destinationC_loveBoost, choice.destinationC_powerBoost, choice.destinationC_darkTetradBoost, choice.destinationC_additionalVariableBoostA_Key, choice.destinationC_additionalVariableBoostA_Value, choice.destinationC_additionalVariableBoostB_Key, choice.destinationC_additionalVariableBoostB_Value);
 
-        this.loadStoryNode(globals.currentModuleChoicesData[tempReference].destinationC);
+        this.loadStoryNode(choice.destinationC);
       } else {
         // go to destinationD
-        this.adjustPlayerPoints(globals.currentModuleChoicesData[tempReference].destinationD_karmaBoost, globals.currentModuleChoicesData[tempReference].destinationD_intellectBoost, globals.currentModuleChoicesData[tempReference].destinationD_loveBoost, globals.currentModuleChoicesData[tempReference].destinationD_powerBoost, globals.currentModuleChoicesData[tempReference].destinationD_darkTetradBoost, globals.currentModuleChoicesData[tempReference].destinationD_additionalVariableBoostA_Key, globals.currentModuleChoicesData[tempReference].destinationD_additionalVariableBoostA_Value, globals.currentModuleChoicesData[tempReference].destinationD_additionalVariableBoostB_Key, globals.currentModuleChoicesData[tempReference].destinationD_additionalVariableBoostB_Value);
+        this.adjustPlayerPoints(choice.destinationD_karmaBoost, choice.destinationD_intellectBoost, choice.destinationD_loveBoost, choice.destinationD_powerBoost, choice.destinationD_darkTetradBoost, choice.destinationD_additionalVariableBoostA_Key, choice.destinationD_additionalVariableBoostA_Value, choice.destinationD_additionalVariableBoostB_Key, choice.destinationD_additionalVariableBoostB_Value);
 
-        this.loadStoryNode(globals.currentModuleChoicesData[tempReference].destinationD);
+        this.loadStoryNode(choice.destinationD);
       }
     }
   }
 
-  adjustPlayerPoints(karmaBoost, intellectBoost, loveBoost, powerBoost, darkTetradBoost, additionalVariableBoostA_Key, additionalVariableBoostA_Value, additionalVariableBoostB_Key, additionalVariableBoostB_Value) {
-    // Adjust player spirit points
-    if (karmaBoost !== null && karmaBoost !== '' && karmaBoost !== undefined) {
-      systems.currentSaveGame.playerKarma += this.parseChoiceBoost(karmaBoost);
+  // Helper method to generate random number between 1-100
+  static rollDie() {
+    return (Math.floor(Math.random() * 100) + 1);
+  }
+
+  // This method is used to adjust the player's points based on the decision that they made.
+  static adjustPlayerPoints(karmaBoost, intellectBoost, loveBoost, powerBoost, darkTetradBoost,
+    additionalVariableBoostA_Key, additionalVariableBoostA_Value,
+    additionalVariableBoostB_Key, additionalVariableBoostB_Value) {
+   
+    // Get current player points from Redux store as an object, 
+    // and copy it (since it is read only):
+    // {
+    //   karma: 0,
+    //   intellect: 0,
+    //   love: 0,
+    //   power: 0,
+    //   darkTetrad: 0
+    // }
+    let playerPoints = Object.assign({}, store.getState().points);    
+
+    // Destructure properties from choice object
+    // const {
+    //   karmaBoost,
+    //   intellectBoost,
+    //   loveBoost,
+    //   powerBoost,
+    //   darkTetradBoost,
+    //   additionalVariableBoostA_Key,
+    //   additionalVariableBoostA_Value,
+    //   additionalVariableBoostB_Key,
+    //   additionalVariableBoostB_Value,
+    //   } = choice;
+
+    // Adjust player spirit points based on choice object properties.
+    // Empty string, null, undefined, and 0 are all falsy.
+    if (karmaBoost) {
+      playerPoints.karma += this.parseChoiceBoost(karmaBoost);
     }
 
-    if (intellectBoost !== null && intellectBoost !== '' && intellectBoost !== undefined) {
-      systems.currentSaveGame.playerIntellect += this.parseChoiceBoost(intellectBoost);
+    if (intellectBoost) {
+      playerPoints.intellect += this.parseChoiceBoost(intellectBoost);
     }
 
-    if (loveBoost !== null && loveBoost !== '' && loveBoost !== undefined) {
-      systems.currentSaveGame.playerLove += this.parseChoiceBoost(loveBoost);
+    if (loveBoost) {
+      playerPoints.love += this.parseChoiceBoost(loveBoost);
     }
 
-    if (powerBoost !== null && powerBoost !== '' && powerBoost !== undefined) {
-      systems.currentSaveGame.playerPower += this.parseChoiceBoost(powerBoost);
+    if (powerBoost) {
+      playerPoints.power += this.parseChoiceBoost(powerBoost);
     }
 
-    if (darkTetradBoost !== null && darkTetradBoost !== '' && darkTetradBoost !== undefined) {
-      systems.currentSaveGame.playerDarkTetrad += this.parseChoiceBoost(darkTetradBoost);
+    if (darkTetradBoost) {
+      playerPoints.darkTetrad += this.parseChoiceBoost(darkTetradBoost);
     }
 
-    if (additionalVariableBoostA_Key !== null && additionalVariableBoostA_Key !== '' && additionalVariableBoostA_Key !== undefined) {
-      systems.currentSaveGame.writeToGameVariables(additionalVariableBoostA_Key, additionalVariableBoostA_Value);
+    // If any point category was updated, dispatch action to update Redux store.
+    // Send back playerPoints object in the same format it was recieved from the store.
+    if (karmaBoost || intellectBoost || loveBoost || powerBoost || darkTetradBoost) {
+      store.dispatch(changePoints(playerPoints));
+    }
 
-      if (additionalVariableBoostB_Key !== null && additionalVariableBoostB_Key !== '' && additionalVariableBoostB_Key !== undefined) {
-        systems.currentSaveGame.writeToGameVariables(additionalVariableBoostB_Key, additionalVariableBoostB_Value);
+    // Collect additional player variables to write and send them to method
+    // to be saved to the Redux store.
+    if (additionalVariableBoostA_Key) {
+      let variablesToWrite = [];
+      variablesToWrite.push({
+        key: additionalVariableBoostA_Key,
+        value: additionalVariableBoostA_Value
+      });
+
+      if (additionalVariableBoostB_Key) {
+        variablesToWrite.push({
+          key: additionalVariableBoostB_Key,
+          value: additionalVariableBoostB_Value
+        });
       }
+
+      this.writeToPlayerVariables(variablesToWrite);
     }
   }
 
-  loadStoryNode(destination) {
-    var textPrint;
+  // Write player variables to object in Redux store.
+  // These additional variables keep track of specific player decisions
+  // that can be evaluated later in the story.
+  // Expects to receive variables as an array of objects (can be only one object):
+  // [
+  //   {
+  //     key: additionalVariableBoostA_Key,
+  //     value: additionalVariableBoostA_Value
+  //   },
+  //   {
+  //     key: additionalVariableBoostB_Key,
+  //     value: additionalVariableBoostB_Value
+  //   }
+  // ]
+  static writeToPlayerVariables(variablesArray) {
+    // Get current playerVariables from the Redux store and copy it (since it is read only).
+    const playerVariables = Object.assign({}, store.getState().variables.playerVariables);
 
-    if (destination === 'DEATH') {
-      textPrint = 'DEATH';
-      storyText.setText(textPrint);
-      storyText.y = frame01YPos;
-      this.fadeInText();
-
-      choice1.setText('');
-      systems.currentSaveGame.currentNodeKey = 'AA000AA000AA';
-      this.game.time.events.add(1500, function () {
-        this.game.state.start('Menu');
-      }, this);
-    } else if (destination === 'END') {
-      textPrint = 'END';
-      storyText.setText(textPrint);
-      storyText.y = frame01YPos;
-      this.fadeInText();
-
-      choice1.setText('');
-      systems.currentSaveGame.currentNodeKey = 'AA000AA000AA';
-      this.game.time.events.add(1500, function () {
-        this.game.state.start('Menu');
-      }, this);
-    } else {
-      if (destination.substring(0, 1) !== 'X') {
-        systems.currentSaveGame.currentNodeKey = destination;
-
-        textPrint = globals.currentModuleTextMap.get(systems.currentSaveGame.currentNodeKey);
-        storyText.setText(textPrint);
-        storyText.y = frame01YPos;
-        this.fadeInText();
-
-        // storyText.setText('');
-        // this.loadStoryText();
+    variablesArray.forEach(variable => {
+    
+      // Check if the variable already exists in playerVariables.
+      // If it does, update it.
+      if (variable.key in playerVariables) {
+        const original = playerVariables[variable.key];
+        playerVariables[variable.key] = original + variable.value;
       } else {
-        // link node logic - loop through as many link nodes as necessary
-        var tempKey = this.processLinkNode(destination);
-        var tempDestination = tempKey;
+        // If variable doesn't exist, add it to playerVariables.
+        playerVariables[variable.key] = variable.value;
+      }
+    });
 
-        while (tempKey.substring(0, 1) === 'X') {
-          tempKey = this.processLinkNode(tempDestination);
-          tempDestination = tempKey;
+    // Dispatch updated playerVariables object to Redux store.
+    // Object should retain same structure in which it was received.
+    store.dispatch(setVariables(playerVariables));
+  }
+
+  // Load the next story node based on the destination key sent as an argument.
+  static loadStoryNode(destination) {
+
+    // Check for either death or game end conditions.
+    if (destination === constants.DEATH_KEY || destination === constants.END_KEY) {
+      this.updateCurrentNode(destination);
+    } else {
+      // Link node keys are prefixed with an X, so check for it here.
+      // If it's not a link node, it's a normal node, so just set it as the new current node.
+      if (!this.checkKeyForLinkNode(destination)) {
+        this.updateCurrentNode(destination);
+
+      } else {
+        // Link node logic - loop through as many link nodes as necessary.
+        // Link nodes are used to test for past decisions through the playerVariables object.
+        let newDestination = this.processLinkNode(destination);
+
+        while (this.checkKeyForLinkNode(newDestination)) {
+          newDestination = this.processLinkNode(newDestination);
         }
 
-        systems.currentSaveGame.currentNodeKey = tempDestination;
-
-        textPrint = globals.currentModuleTextMap.get(systems.currentSaveGame.currentNodeKey);
-        storyText.setText(textPrint);
-        storyText.y = frame01YPos;
-        this.fadeInText();
+        this.updateCurrentNode(destination);
       }
     }
 
-    // kern of duty text
-    // storyText.setText('');
+    this.loadGame();
+  }
 
-    this.loadChoices();
-    this.adjustSliders();
+  // Link node keys are prefixed with an X, so check for it here.
+  static checkKeyForLinkNode(nodeKey) {
+    return (nodeKey.substring(0, 1) === constants.LINK_NODE_PREFIX);
+  }
+
+  // Dispatch an action to update the currentNodeKey in the Redux store.
+  static updateCurrentNode(destination) {
+    store.dispatch(setCurrentNodeKey(destination));    
   }
   
-  processLinkNode(destination) {
-    var loadedLinkNodes = [];
-    var stringTest;
-    var test1 = false;
-    var test2 = false;
-    var test3 = false;
+  static processLinkNode(destination) {
+    let loadedLinkNodes = [];
+    let stringTest;
+    let test1 = false;
+    let test2 = false;
+    let test3 = false;
 
-    // load the link nodes into the temp array
-    for (var j in globals.currentModuleLinkNodesData) {
-      stringTest = globals.currentModuleLinkNodesData[j].KEY;
+    // Load the link nodes matching the key pattern into an array.
+    // There can be multiple link nodes for a particular key in order to create
+    // complex condition chains, such as: IF 01MarryJeneth, go to destination 1,
+    // ELSE, go to destination 2. Keys in the same pattern match: 
+    // XAA001AJ001BD01, XAA001AJ001BD02 - They are the same except for the last
+    // two digits, so test for the same first twelve characters.
+    const linkNodesData = store.getState().data.linkNodesData;
+
+    // TODO: Redesign to not have to search through all data
+    for (const i in linkNodesData) {
+      stringTest = linkNodesData[i].KEY;
       if (stringTest.substring(0, 13) === destination) {
-        // loadedLinkNodes.push(i);
-        loadedLinkNodes.push(globals.currentModuleLinkNodesData[j]);
+        loadedLinkNodes.push(linkNodesData[i]);
       }
     }
 
-    // or make this a while loop?
-    for (var i = 0; i < loadedLinkNodes.length; i++) {
-      if (loadedLinkNodes[i].variable1 !== 'ELSE') {
-        if (loadedLinkNodes[i].variable2 === '' || loadedLinkNodes[i].variable2 === null || loadedLinkNodes[i].variable2 === undefined) {
-          // then just check for variable1
-          if (this.checkPlayerVariables(loadedLinkNodes[i].variable1, loadedLinkNodes[i].equivalence1, loadedLinkNodes[i].value1)) {
+    // TODO: Review logic
+    loadedLinkNodes.forEach(linkNode => {
+      if (linkNode.variable1 !== 'ELSE') {
+        // Empty string, null, undefined, and 0 are all falsy.
+        if (!linkNode.variable2) {
+          // If there's not second variable, then just check for variable1
+          if (this.checkPlayerVariables(linkNode.variable1, linkNode.equivalence1, linkNode.value1)) {
             test1 = true;
           }
-        } else if (loadedLinkNodes[i].variable3 === '' || loadedLinkNodes[i].variable3 === null || loadedLinkNodes[i].variable3 === undefined) {
-          // check for variable1 and variable2
-          if (this.checkPlayerVariables(loadedLinkNodes[i].variable1, loadedLinkNodes[i].equivalence1, loadedLinkNodes[i].value1)) {
+        } else if (!linkNode.variable3) {
+          // If there's no third variable, then check for variable1 and variable2
+          if (this.checkPlayerVariables(linkNode.variable1, linkNode.equivalence1, linkNode.value1)) {
             test1 = true;
           }
 
-          if (this.checkPlayerVariables(loadedLinkNodes[i].variable2, loadedLinkNodes[i].equivalence2, loadedLinkNodes[i].value2)) {
+          if (this.checkPlayerVariables(linkNode.variable2, linkNode.equivalence2, linkNode.value2)) {
             test2 = true;
           }
         } else {
-          // check for variable1, variable2, and variable3
-          if (this.checkPlayerVariables(loadedLinkNodes[i].variable1, loadedLinkNodes[i].equivalence1, loadedLinkNodes[i].value1)) {
+          // Check for variable1, variable2, and variable3
+          if (this.checkPlayerVariables(linkNode.variable1, linkNode.equivalence1, linkNode.value1)) {
             test1 = true;
           }
 
-          if (this.checkPlayerVariables(loadedLinkNodes[i].variable2, loadedLinkNodes[i].equivalence2, loadedLinkNodes[i].value2)) {
+          if (this.checkPlayerVariables(linkNode.variable2, linkNode.equivalence2, linkNode.value2)) {
             test2 = true;
           }
 
-          if (this.checkPlayerVariables(loadedLinkNodes[i].variable3, loadedLinkNodes[i].equivalence3, loadedLinkNodes[i].value3)) {
+          if (this.checkPlayerVariables(linkNode.variable3, linkNode.equivalence3, linkNode.value3)) {
             test3 = true;
           }
         }
         // -------------------------------------------------------------------------
         // Test the individual variables in combination
         // -------------------------------------------------------------------------
-        if (loadedLinkNodes[i].operator1 === '' || loadedLinkNodes[i].operator1 === null || loadedLinkNodes[i].operator1 === undefined) {
+        // Empty string, null, undefined, and 0 are all falsy.
+        if (!linkNode.operator1) {
+          // If there are no logical operators like && or ||, then this is a single test.
           if (test1) {
-            // go to destination
-            return this.getRandomLinkNodeDestination(loadedLinkNodes[i]);
+            // Go to destination
+            return this.getRandomLinkNodeDestination(linkNode);
           }
-        } else if (loadedLinkNodes[i].operator1 === '&&' && loadedLinkNodes[i].operator2 === '') {
+        } else if (linkNode.operator1 === '&&' && !linkNode.operator2) {
           if (test1 && test2) {
-            // go to destination
-            return this.getRandomLinkNodeDestination(loadedLinkNodes[i]);
+            return this.getRandomLinkNodeDestination(linkNode);
           }
-        } else if (loadedLinkNodes[i].operator1 === '||' && loadedLinkNodes[i].operator2 === '') {
+        } else if (linkNode.operator1 === '||' && !linkNode.operator2) {
           if (test1 || test2) {
-            // go to destination
-            return this.getRandomLinkNodeDestination(loadedLinkNodes[i]);
+            return this.getRandomLinkNodeDestination(linkNode);
           }
-        } else if (loadedLinkNodes[i].operator1 === '&&' && loadedLinkNodes[i].operator2 === '&&') {
+        } else if (linkNode.operator1 === '&&' && linkNode.operator2 === '&&') {
           if (test1 && test2 && test3) {
-            // go to destination
-            return this.getRandomLinkNodeDestination(loadedLinkNodes[i]);
+            return this.getRandomLinkNodeDestination(linkNode);
           }
-        } else if (loadedLinkNodes[i].operator1 === '||' && loadedLinkNodes[i].operator2 === '&&') {
+        } else if (linkNode.operator1 === '||' && linkNode.operator2 === '&&') {
           if ((test1 || test2) && test3) {
-            // go to destination
-            return this.getRandomLinkNodeDestination(loadedLinkNodes[i]);
+            return this.getRandomLinkNodeDestination(linkNode);
           }
-        } else if (loadedLinkNodes[i].operator1 === '&&' && loadedLinkNodes[i].operator2 === '||') {
+        } else if (linkNode.operator1 === '&&' && linkNode.operator2 === '||') {
           if ((test1 && test2) || test3) {
-            // go to destination
-            return this.getRandomLinkNodeDestination(loadedLinkNodes[i]);
+            return this.getRandomLinkNodeDestination(linkNode);
           }
-        } else if (loadedLinkNodes[i].operator1 === '||' && loadedLinkNodes[i].operator2 === '||') {
+        } else if (linkNode.operator1 === '||' && linkNode.operator2 === '||') {
           if (test1 || test2 || test3) {
-            // go to destination
-            return this.getRandomLinkNodeDestination(loadedLinkNodes[i]);
+            return this.getRandomLinkNodeDestination(linkNode);
           }
         }
       } else {
-        // variable1 is ELSE and just go to destination
-        return this.getRandomLinkNodeDestination(loadedLinkNodes[i]);
+        // variable1 is ELSE and just go to destination.
+        return this.getRandomLinkNodeDestination(linkNode);
       }
-    }
-    // If nothing is found, that's an error
-    alert('Something bad happened.');
+    });
+    // If nothing is found, an error has occurred.
+    console.log('%c processLinkNode() error', 'color:white; background:red;');
     return null;
   }
 
-  getRandomLinkNodeDestination(linkNode) {
-    var dieRollDestinationA;
-    var dieRollDestinationB;
-    var dieRollDestinationC;
-    var dieRollDestinationD;
+  // Return a destination based on the link node's percentages.
+  static getRandomLinkNodeDestination(linkNode) {
+    let dieRollA;
+    let dieRollB;
+    let dieRollC;
+    let dieRollD;
 
-    // alert(linkNode.destinationA_percentage);
-
-    if (linkNode.destinationA_percentage === null || linkNode.destinationA_percentage === '' || linkNode.destinationA_percentage === undefined) {
-      // There's only one destination, go to destinationA
+    // Empty string '', null, undefined, and 0 are all falsy.
+    if (!linkNode.destinationA_percentage) {
+      // There's only one destination, so go to destinationA.
       return linkNode.destinationA;
-    } else if (linkNode.destinationC_percentage === null || linkNode.destinationC_percentage === '' || linkNode.destinationC_percentage === undefined) {
-      // There's no third destination, so it's between destinationA and destinationB
-      dieRollDestinationA = (Math.floor(Math.random() * 100) + 1) * linkNode.destinationA_percentage;
-      dieRollDestinationB = (Math.floor(Math.random() * 100) + 1) * linkNode.destinationB_percentage;
 
-      if (dieRollDestinationA > dieRollDestinationB) {
-        // go to destinationA
+    } else if (!linkNode.destinationC_percentage) {
+      // There's no third destination, so it's between destinationA and destinationB
+      dieRollA = this.rollDie() * linkNode.destinationA_percentage;
+      dieRollB = this.rollDie() * linkNode.destinationB_percentage;
+
+      if (dieRollA > dieRollB) {
         return linkNode.destinationA;
+
       } else {
-        // go to destinationB
         return linkNode.destinationB;
       }
-    } else if (linkNode.destinationD_percentage === null || linkNode.destinationD_percentage === '') {
-      // There's no fourth destination, so it's between destinationA and destinationB and destinationC
-      dieRollDestinationA = (Math.floor(Math.random() * 100) + 1) * linkNode.destinationA_percentage;
-      dieRollDestinationB = (Math.floor(Math.random() * 100) + 1) * linkNode.destinationB_percentage;
-      dieRollDestinationC = (Math.floor(Math.random() * 100) + 1) * linkNode.destinationC_percentage;
 
-      if (dieRollDestinationA > dieRollDestinationB && dieRollDestinationA > dieRollDestinationC) {
-        // go to destinationA
+    } else if (!linkNode.destinationD_percentage) {
+      // There's no fourth destination, so it's between destinationA, destinationB, and destinationC
+      dieRollA = this.rollDie() * linkNode.destinationA_percentage;
+      dieRollB = this.rollDie() * linkNode.destinationB_percentage;
+      dieRollC = this.rollDie() * linkNode.destinationC_percentage;
+
+      if (dieRollA > dieRollB && dieRollA > dieRollC) {
         return linkNode.destinationA;
-      } else if (dieRollDestinationB > dieRollDestinationC) {
-        // go to destinationB
+
+      } else if (dieRollB > dieRollC) {
         return linkNode.destinationB;
+
       } else {
-        // go to destinationC
         return linkNode.destinationC;
       }
+
     } else {
       // There are four destinations
-      dieRollDestinationA = (Math.floor(Math.random() * 100) + 1) * linkNode.destinationA_percentage;
-      dieRollDestinationB = (Math.floor(Math.random() * 100) + 1) * linkNode.destinationB_percentage;
-      dieRollDestinationC = (Math.floor(Math.random() * 100) + 1) * linkNode.destinationC_percentage;
-      dieRollDestinationD = (Math.floor(Math.random() * 100) + 1) * linkNode.destinationD_percentage;
+      dieRollA = this.rollDie() * linkNode.destinationA_percentage;
+      dieRollB = this.rollDie() * linkNode.destinationB_percentage;
+      dieRollC = this.rollDie() * linkNode.destinationC_percentage;
+      dieRollD = this.rollDie() * linkNode.destinationD_percentage;
 
-      if (dieRollDestinationA > dieRollDestinationB && dieRollDestinationA > dieRollDestinationC && dieRollDestinationA > dieRollDestinationD) {
-        // go to destinationA
+      if (dieRollA > dieRollB && dieRollA > dieRollC && dieRollA > dieRollD) {
         return linkNode.destinationA;
-      } else if (dieRollDestinationB > dieRollDestinationC && dieRollDestinationB > dieRollDestinationD) {
-        // go to destinationB
+
+      } else if (dieRollB > dieRollC && dieRollB > dieRollD) {
         return linkNode.destinationB;
-      } else if (dieRollDestinationC > dieRollDestinationD) {
-        // go to destinationC
+
+      } else if (dieRollC > dieRollD) {
         return linkNode.destinationC;
+
       } else {
-        // go to destinationD
         return linkNode.destinationD;
       }
     }
