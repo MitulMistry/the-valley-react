@@ -44,18 +44,23 @@ export default class {
     // TODO: Redesign to not have to search through all data
     for (const i in choicesData) {
       stringTest = choicesData[i].KEY;
+
       if (stringTest.substring(0, 12) === currentNodeKey) {
+
         if (this.checkChoice(i)) {
-          const choice = {
-            key: choicesData[i].KEY,
-            text: choicesData[i].text
+          const choiceData = choicesData[i];
+
+          let choice = {
+            key: choiceData.KEY,
+            text: choiceData.text,
+            colorClass: this.getColorClass(choiceData)
           };
+
           choices.push(choice);
         }
       }
     }
     
-    choices = this.addColorClasses(choices);
     store.dispatch(setChoices(choices));
   }
 
@@ -145,33 +150,28 @@ export default class {
     }
   }
 
-  // Adds class names to choices for what color the text should be.
+  // Return a CSS class name for what color the choice text should be.
   // These are the classNames that should be attached to the choices in React.
-  static addColorClasses(choicesArray) {
-    let newChoicesArray = [];
+  static getColorClass(choice) {
+    let colorClass;
 
-    // Iterate through array of choices, add colorClass property
-    // based on point cost, and return new array of choices.
-    choicesArray.forEach(choice => {    
+    // Determine if a type of point cost is present for the choice,
+    // then return the appropriate class name.
+    if (choice.karmaCost) {
+      colorClass = 'color-karma';
+    } else if (choice.powerCost) {
+      colorClass = 'color-power';
+    } else if (choice.intellectCost) {
+      colorClass = 'color-intellect';
+    } else if (choice.loveCost) {
+      colorClass = 'color-love';
+    } else if (choice.darkTetradCost) {
+      colorClass = 'color-dark-tetrad';
+    } else {
+      colorClass = 'color-choice';
+    }
 
-      if (choice.karmaCost) {
-        choice.colorClass = 'color-karma';
-      } else if (choice.powerCost) {
-        choice.colorClass = 'color-power';
-      } else if (choice.intellectCost) {
-        choice.colorClass = 'color-intellect';
-      } else if (choice.loveCost) {
-        choice.colorClass = 'color-love';
-      } else if (choice.darkTetradCost) {
-        choice.colorClass = 'color-dark-tetrad';
-      } else {
-        choice.colorClass = 'color-choice';
-      }
-
-      newChoicesArray.push(choice);
-    });
-
-    return newChoicesArray;
+    return colorClass;
   }
 
   // Convert text values for point costs to numerical values based on constants
@@ -309,7 +309,6 @@ export default class {
 
   static makeDecision(choiceNodeKey) {
     const currentNodeKey = store.getState().game.currentNodeKey;
-    console.log(choiceNodeKey);
     this.writeToGameLog(currentNodeKey, choiceNodeKey);
 
     const choice = store.getState().data.choicesData[choiceNodeKey];
