@@ -24,23 +24,23 @@ const gameLogReducer = (state = initialState, action) => {
       nextState = Object.assign({}, state);
       nextState.gameStarted = true;
       nextState.gameLog = [];
-      nextState.module = initialState.module;
-      nextState.nodeKey = initialState.nodeKey;
+      nextState.currentModule = initialState.currentModule;
+      nextState.currentNodeKey = initialState.currentNodeKey;
       return nextState;
     case ADD_TO_LOG:
       nextState = Object.assign({}, state);
       nextState.gameLog.push({
         textNodeKey: action.textNodeKey,
-        decision: action.decision
+        choiceNodeKey: action.choiceNodeKey
       });
       return nextState;
     case SET_CURRENT_MODULE:
       nextState = Object.assign({}, state);
-      nextState.module = action.module;
+      nextState.currentModule = action.module;
       return nextState;
     case SET_CURRENT_NODE_KEY:
       nextState = Object.assign({}, state);
-      nextState.nodeKey = action.nodeKey;
+      nextState.currentNodeKey = action.nodeKey;
       return nextState;
     default:
       return state;

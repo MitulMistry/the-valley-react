@@ -5,11 +5,7 @@ export const resetPoints = () => ({
   type: RESET_POINTS
 });
 
-export const changePoints = (power, karma, darkTetrad, intellect, love) => ({
+export const changePoints = (pointsObject) => ({
   type: CHANGE_POINTS,
-  power,
-  karma,
-  darkTetrad,
-  intellect,
-  love,
+  pointsObject,
 });

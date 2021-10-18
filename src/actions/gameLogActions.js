@@ -12,10 +12,10 @@ export const endGame = () => ({
   type: END_GAME
 });
 
-export const addToLog = (textNodeKey, decision) => ({
+export const addToLog = (textNodeKey, choiceNodeKey) => ({
   type: ADD_TO_LOG,
   textNodeKey,
-  decision,
+  choiceNodeKey,
 });
 
 export const setCurrentModule = module => ({
