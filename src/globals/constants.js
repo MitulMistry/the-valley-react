@@ -37,6 +37,10 @@ export default {
   POINT_COST_MEGA_02: 100,
   POINT_COST_MEGA_03: 150,
 
+  LINK_NODE_PREFIX: 'X',
+  DEATH_KEY: 'DEATH',
+  END_KEY: 'END',
   CONTINUE_TEXT: 'Continue...',
-  DEATH_TEXT: 'You died.'
+  DEATH_TEXT: 'You died... but maybe next time, things will be different.',
+  END_TEXT: 'The end... or is it?'
 };
