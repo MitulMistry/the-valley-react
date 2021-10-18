@@ -16,7 +16,9 @@ export class GameChoicesList extends React.Component {
 
     return (
       <div className="game-choices-list">
-        <p className="game-choices-info">Make a choice:</p>
+        <p className="game-choices-info">
+          { choices.length > 1 ? 'Make a choice:' : 'Click below to proceed:' }
+        </p>
         {gameChoiceItems}
       </div>
     );

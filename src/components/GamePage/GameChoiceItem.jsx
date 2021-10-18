@@ -11,20 +11,21 @@ export class GameChoiceItem extends React.Component {
 
   makeDecision(e) {
     e.preventDefault();
-
     const { choice } = this.props;
-    GameManager.makeDecision(choice.KEY);
+
+    GameManager.makeDecision(choice.key);
   }
 
   render() {
     const { choice } = this.props;
-
     const cssClasses = `game-choice-item ${choice.colorClass}`;
 
     return (
-      <a href="/#" className={ cssClasses } onClick={ this.makeDecision }>
-        { choice.text || constants.CONTINUE_TEXT }
-      </a>
+      <p>
+        <a href="/#" className={ cssClasses } onClick={ this.makeDecision }>
+          { choice.text || constants.CONTINUE_TEXT }
+        </a>
+      </p>
     );
   }
 }
