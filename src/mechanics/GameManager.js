@@ -99,7 +99,7 @@ export default class {
         return false;
       }
     } else if (choice.darkTetradCost) {
-      if (playerPoints.darkTetrad >= this.parseChoiceCost(choice.powerDarkTetrad)) {
+      if (playerPoints.darkTetrad >= this.parseChoiceCost(choice.darkTetradCost)) {
         return true;
       } else {
         return false;
