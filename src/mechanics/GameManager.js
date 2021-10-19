@@ -537,7 +537,7 @@ export default class {
           newDestination = this.processLinkNode(newDestination);
         }
 
-        this.updateCurrentNode(destination);
+        this.updateCurrentNode(newDestination);
       }
     }
 
@@ -554,6 +554,11 @@ export default class {
     store.dispatch(setCurrentNodeKey(destination));    
   }
   
+  // This method is used to examine a link node and determine how to proceed based
+  // on whether or not the player has met certain conditions based on past decisions.
+  // The method loads all link nodes that match the given destination key, then checks
+  // the requirements of each link node based on the playerVariables object in the
+  // Redux store. The method returns a new destination (which may be another link node).
   static processLinkNode(destination) {
     let loadedLinkNodes = [];
     let stringTest;
@@ -578,7 +583,12 @@ export default class {
     }
 
     // TODO: Review logic
-    loadedLinkNodes.forEach(linkNode => {
+    // In this loop, we check for past decisions (playerVariables) based on
+    // requirements in the link node. This can't be a forEach because we need
+    // to be able to terminate early and return a destination.
+    for (let i = 0; i < loadedLinkNodes.length; i++) {
+      const linkNode = loadedLinkNodes[i];
+
       if (linkNode.variable1 !== 'ELSE') {
         // Empty string, null, undefined, and 0 are all falsy.
         if (!linkNode.variable2) {
@@ -648,7 +658,7 @@ export default class {
         // variable1 is ELSE and just go to destination.
         return this.getRandomLinkNodeDestination(linkNode);
       }
-    });
+    };
     // If nothing is found, an error has occurred.
     console.log('%c processLinkNode() error', 'color:white; background:red;');
     return null;
