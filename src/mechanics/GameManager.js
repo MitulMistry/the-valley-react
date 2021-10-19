@@ -14,11 +14,15 @@ import systems from '../globals/systems';
 
 export default class {
   
+  // Call this method to load text and choices into the Redux store based
+  // on the current node key.
   static loadGame() {
     this.loadText();
     this.loadChoices();
   }
 
+  // This method loads text from the JSON text data into the Redux store
+  // based on the current node key.
   static loadText() {
     const key = store.getState().game.currentNodeKey;
     let text = '';
@@ -29,11 +33,14 @@ export default class {
       text = constants.END_TEXT;
     } else {
       text = store.getState().data.textData[key];
+      text = text.split(constants.LINE_BREAK_SEPARATOR);
     }
 
     store.dispatch(setText(text));
   }
 
+  // This method loads choices from the JSON choices data into the Redux
+  // store based on the current node key.
   static loadChoices() {
     let stringTest;
     let choices = [];

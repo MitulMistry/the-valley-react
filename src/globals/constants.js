@@ -37,6 +37,7 @@ export default {
   POINT_COST_MEGA_02: 100,
   POINT_COST_MEGA_03: 150,
 
+  LINE_BREAK_SEPARATOR: '\n\n',
   LINK_NODE_PREFIX: 'X',
   DEATH_KEY: 'DEATH',
   END_KEY: 'END',
