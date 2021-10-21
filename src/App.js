@@ -8,7 +8,6 @@ import { Provider } from 'react-redux';
 import Container from 'react-bootstrap/Container';
 import GameLoadingContainer from './components/GamePage/GameLoadingContainer';
 import { MenuPage } from './components/MenuPage/MenuPage';
-import { Footer } from './components/common/Footer';
 
 const App = ({ store }) => (
   <Provider store={store}>

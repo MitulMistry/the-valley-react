@@ -7,9 +7,7 @@ import { setVariables } from '../actions/variablesActions';
 // Store can be accessed with .getState() and can .dispatch() actions.
 import { store } from '../index';
 
-import globals from '../globals/globals';
 import constants from '../globals/constants';
-import systems from '../globals/systems';
 
 
 export default class {
