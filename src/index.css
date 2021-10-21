@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,700&family=Merriweather:ital@0;1&display=swap');
 
+html,
+body {
+  height: 100%;
+}
+
 body {
   background-color: rgb(5, 5, 5);
   background: rgb(5, 5, 5) url('./assets/valley_bg_01_small.png');
@@ -7,6 +12,21 @@ body {
   background-repeat: no-repeat;
   color: white;
   font-family: 'Merriweather', serif;
+}
+
+/* body, #root, .app, and .footer configured to use Flexbox to implement sticky footer */
+/* Using: https://medium.com/@stefanmaretic/react-sticky-footer-f842d5fbd68 */
+/* https://codesandbox.io/s/l2v2k0q7rq?from-embed=&file=/src/index.js */
+
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.app {
+  flex: 1 0 auto;
+  padding: 10px;
 }
 
 h1, h2, h3, h4, h5 {
@@ -63,6 +83,7 @@ h4.menu-tagline {
 }
 
 .footer {
+  flex-shrink: 0;
   text-align: center;
   margin-top: 6rem;
   padding-bottom: 2rem;

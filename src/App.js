@@ -22,7 +22,6 @@ const App = ({ store }) => (
             <MenuPage />
           </Route>
         </Switch>
-        <Footer />
       </Container>
     </Router>
   </Provider>
