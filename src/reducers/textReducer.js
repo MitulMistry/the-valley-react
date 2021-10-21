@@ -1,7 +1,12 @@
-import { RESET_TEXT_CHOICES, SET_TEXT, SET_CHOICES } from '../actions/textActions';
+import {
+  RESET_TEXT_CHOICES,
+  SET_TEXT,
+  SET_CHOICES,
+  RESET_TEXT_UPDATE } from '../actions/textActions';
 
 const initialState = {
   text: "Placeholder text.",
+  textWasUpdated: true,
   choices: [
     {
       KEY: "AA000AA000AB01",
@@ -23,14 +28,21 @@ const textReducer = (state = initialState, action) => {
       nextState = Object.assign({}, state);
       nextState.text = initialState.text;
       nextState.choices = initialState.choices;
+      nextState.textWasUpdated = initialState.textWasUpdated;
       return nextState;
     case SET_TEXT:
       nextState = Object.assign({}, state);
       nextState.text = action.text;
+      nextState.textWasUpdated = true;
       return nextState;
     case SET_CHOICES:
       nextState = Object.assign({}, state);
       nextState.choices = action.choices;
+      nextState.textWasUpdated = true;
+      return nextState;
+    case RESET_TEXT_UPDATE:
+      nextState = Object.assign({}, state);
+      nextState.textWasUpdated = false;
       return nextState;
     default:
       return state;

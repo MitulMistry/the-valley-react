@@ -5,7 +5,7 @@ import MenuListContainer from './MenuListContainer';
 export class MenuPage extends React.Component {
   render() {
     return (
-      <div className="menu-page">
+      <div className="menu-page fade-in">
         <h1 className="menu-title">The Valley</h1>
         <h4 className="menu-tagline">A text adventure system built with React.</h4>
         <div className="d-flex justify-content-center">
