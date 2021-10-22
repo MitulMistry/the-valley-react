@@ -2,6 +2,7 @@ import { setText, setChoices } from '../actions/textActions';
 import { addToLog, setCurrentNodeKey } from '../actions/gameLogActions';
 import { changePoints } from '../actions/pointsActions';
 import { setVariables } from '../actions/variablesActions';
+import { checkIfGameOver, checkIfGameDead, checkIfGameEnded } from './helpers';
 
 // Import Redux store from index.js where it is created.
 // Store can be accessed with .getState() and can .dispatch() actions.
@@ -25,9 +26,9 @@ export default class {
     const key = store.getState().game.currentNodeKey;
     let text = '';
 
-    if (key === constants.DEATH_KEY) {
+    if (checkIfGameDead(key)) {
       text = constants.DEATH_TEXT;
-    } else if (key === constants.END_KEY) {
+    } else if (checkIfGameEnded(key)) {
       text = constants.END_TEXT;
     } else {
       text = store.getState().data.textData[key];
@@ -45,20 +46,20 @@ export default class {
 
     const currentNodeKey = store.getState().game.currentNodeKey;
 
-    if (currentNodeKey === constants.DEATH_KEY) {
+    if (checkIfGameDead(currentNodeKey)) {
       choices.push({
         key: constants.DEATH_KEY,
         text: constants.END_CHOICE,
         colorClass: 'color-choice'
       });
       
-    } else if (currentNodeKey === constants.END_KEY){
+    } else if (checkIfGameEnded(currentNodeKey)){
       choices.push({
         key: constants.END_KEY,
         text: constants.END_CHOICE,
         colorClass: 'color-choice'
       });
-      
+
     } else {
       const choicesData = store.getState().data.choicesData;
 
@@ -542,7 +543,7 @@ export default class {
   static loadStoryNode(destination) {
 
     // Check for either death or game end conditions.
-    if (destination === constants.DEATH_KEY || destination === constants.END_KEY) {
+    if (checkIfGameOver(destination)) {
       this.updateCurrentNode(destination);
     } else {
       // Link node keys are prefixed with an X, so check for it here.

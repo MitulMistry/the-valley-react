@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import GameManager from '../../mechanics/GameManager';
 import constants from '../../globals/constants';
+import { checkIfGameOver } from '../../mechanics/helpers';
 
 export class GameChoiceItem extends React.Component {
   constructor(props) {
@@ -20,14 +21,14 @@ export class GameChoiceItem extends React.Component {
   render() {
     const { choice } = this.props;
     const cssClasses = `game-choice-item ${choice.colorClass}`;
-    const gameEnded = (choice.key === constants.DEATH_KEY || choice.key === constants.END_KEY);
+    const gameOver = checkIfGameOver(choice.key);
 
     return (
       <p>
-        {!gameEnded && <a href="/#" className={ cssClasses } onClick={ this.makeDecision }>
+        {!gameOver && <a href="/#" className={ cssClasses } onClick={ this.makeDecision }>
           { choice.text || constants.CONTINUE_TEXT }
         </a>}
-        {gameEnded && <Link className="game-choice-item color-choice" to="/">{constants.END_CHOICE}</Link>}
+        {gameOver && <Link className="game-choice-item color-choice" to="/">{constants.END_CHOICE}</Link>}
       </p>
     );
   }
