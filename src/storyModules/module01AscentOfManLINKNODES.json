@@ -7,11 +7,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AH002AA",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -19,7 +19,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AH001AI02",
@@ -29,11 +29,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AH003AA",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -41,7 +41,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AH001AI03",
@@ -51,11 +51,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AH004AA",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -63,7 +63,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AH002AA01",
@@ -73,11 +73,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AH002AC",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -85,7 +85,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AH002AA02",
@@ -95,11 +95,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AH002AD",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -107,7 +107,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AH003AA01",
@@ -117,11 +117,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AH003AC",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -129,7 +129,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AH003AA02",
@@ -139,11 +139,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AH003AD",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -151,7 +151,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AH004AA01",
@@ -161,11 +161,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AH004AF",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -173,7 +173,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AH004AA02",
@@ -183,11 +183,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AH004AE",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -195,7 +195,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AI000AG01",
@@ -205,11 +205,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AI001AA",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -217,7 +217,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AI000AG02",
@@ -227,11 +227,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AI002AA",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -239,7 +239,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AI000AG03",
@@ -249,11 +249,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AI003AA",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -261,7 +261,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AI000AG01",
@@ -271,11 +271,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AI001AA",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -283,7 +283,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AI000AG02",
@@ -293,11 +293,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AI002AA",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -305,7 +305,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AI000AG03",
@@ -315,11 +315,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AI003AA",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -327,7 +327,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AI001AA01",
@@ -337,11 +337,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AI001AC",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -349,7 +349,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AI001AA02",
@@ -359,11 +359,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AI001AD",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -371,7 +371,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AI002AA01",
@@ -381,11 +381,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AI002AC",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -393,7 +393,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AI002AA02",
@@ -403,11 +403,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AI002AD",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -415,7 +415,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AI003AA01",
@@ -425,11 +425,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AI003AD",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -437,7 +437,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AI003AA02",
@@ -447,11 +447,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AI003AE",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -459,7 +459,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AI001AB01",
@@ -469,11 +469,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"XAA001AI001AC",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -481,7 +481,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AI001AB02",
@@ -491,11 +491,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AK000AB",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -503,7 +503,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AI001AC01",
@@ -513,11 +513,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AJ000AA",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -525,7 +525,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AI001AC02",
@@ -535,11 +535,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AK000AA",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -547,7 +547,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AJ001AA01",
@@ -557,11 +557,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AJ001AB",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -569,7 +569,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AJ001AA02",
@@ -579,11 +579,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AJ001AC",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -591,7 +591,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AJ001AA03",
@@ -601,11 +601,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AJ001AD",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -613,7 +613,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AJ001BD01",
@@ -623,11 +623,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"XAA001AJ001BE",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -635,7 +635,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AJ001BD02",
@@ -645,11 +645,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"XAA001AJ001BF",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -657,7 +657,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AJ001BE01",
@@ -667,11 +667,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AJ001BF",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -679,7 +679,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AJ001BE02",
@@ -689,11 +689,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AJ001BG",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -701,7 +701,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AJ001BF01",
@@ -711,11 +711,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AJ001BH",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -723,7 +723,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AJ001BF02",
@@ -733,11 +733,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AJ001BI",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -745,7 +745,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AJ001BA01",
@@ -755,11 +755,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"XAA001AJ001BB",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -767,7 +767,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AJ001BA02",
@@ -777,11 +777,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"XAA001AJ001BC",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -789,7 +789,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AJ001BB01",
@@ -799,11 +799,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AJ001BC",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -811,7 +811,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AJ001BB02",
@@ -821,11 +821,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AJ002AA",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -833,7 +833,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AJ001BC01",
@@ -843,11 +843,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AJ001BD",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -855,7 +855,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AJ001BC02",
@@ -865,11 +865,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AJ001BE",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -877,7 +877,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AJ001CA01",
@@ -887,11 +887,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AJ001BC",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -899,7 +899,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AJ001CA02",
@@ -909,11 +909,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"XAA001AJ001CB",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -921,7 +921,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AJ001CB01",
@@ -931,11 +931,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AJ001CB",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -943,7 +943,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AJ001CB02",
@@ -953,11 +953,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AJ001CC",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -965,7 +965,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AJ001CC01",
@@ -975,11 +975,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AJ001BD",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -987,7 +987,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AJ001CC02",
@@ -997,11 +997,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"XAA001AJ001CD",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -1009,7 +1009,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AJ001CD01",
@@ -1019,11 +1019,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AJ001CD",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -1031,7 +1031,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AJ001CD02",
@@ -1041,11 +1041,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AJ001CE",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -1053,7 +1053,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AK000AB01",
@@ -1063,11 +1063,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AK000AC",
     "destinationA_percentage":0.8,
     "destinationB":"AA001AK000AD",
@@ -1075,7 +1075,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AK000AB02",
@@ -1085,11 +1085,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AK000AC",
     "destinationA_percentage":0.5,
     "destinationB":"AA001AK000AD",
@@ -1097,7 +1097,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AK000AC01",
@@ -1107,11 +1107,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AK000BA",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -1119,7 +1119,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AK000AC02",
@@ -1129,11 +1129,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AK000BB",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -1141,7 +1141,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AK000AG01",
@@ -1151,11 +1151,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AK000BE",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -1163,7 +1163,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AK000AG02",
@@ -1173,11 +1173,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AK000BG",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -1185,7 +1185,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AK000BA01",
@@ -1195,11 +1195,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"XAA001AK000BB",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -1207,7 +1207,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AK000BA02",
@@ -1217,11 +1217,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"XAA001AK000BC",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -1229,7 +1229,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AK000BA03",
@@ -1239,11 +1239,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"XAA001AK000BD",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -1251,7 +1251,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AK000BB01",
@@ -1261,11 +1261,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AK002AB",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -1273,7 +1273,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AK000BB02",
@@ -1283,11 +1283,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AK002AJ",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -1295,7 +1295,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AK000BC01",
@@ -1305,11 +1305,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AK002AC",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -1317,7 +1317,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AK000BC02",
@@ -1327,11 +1327,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AK002AK",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -1339,7 +1339,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AK000BD01",
@@ -1349,11 +1349,11 @@
     "operator1":"&&",
     "variable2":"01SylaHappiness",
     "equivalence2":"<",
-    "value2":"1",
+    "value2":1,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AK002AD",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -1361,7 +1361,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AK000BD02",
@@ -1371,11 +1371,11 @@
     "operator1":"&&",
     "variable2":"01SylaHappiness",
     "equivalence2":"<",
-    "value2":"1",
+    "value2":1,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AK002AE",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -1383,7 +1383,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AK000BD03",
@@ -1393,11 +1393,11 @@
     "operator1":"&&",
     "variable2":"01SylaHappiness",
     "equivalence2":">=",
-    "value2":"1",
+    "value2":1,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AK002AF",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -1405,7 +1405,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AK000BD04",
@@ -1415,11 +1415,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AK002AI",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -1427,7 +1427,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AK002AB01",
@@ -1437,11 +1437,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"XAA001AK002AC",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -1449,7 +1449,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AK002AB02",
@@ -1459,11 +1459,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"XAA001AK002AD",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -1471,7 +1471,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AK002AB03",
@@ -1481,11 +1481,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"XAA001AK002AE",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -1493,7 +1493,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AK002AC01",
@@ -1503,11 +1503,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AK002BA",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -1515,7 +1515,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AK002AC02",
@@ -1525,11 +1525,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AK002BB",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -1537,7 +1537,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AK002AD01",
@@ -1547,11 +1547,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AK002BC",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -1559,7 +1559,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AK002AD02",
@@ -1569,11 +1569,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AK002BD",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -1581,7 +1581,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AK002AE01",
@@ -1591,11 +1591,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AK002BE",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -1603,7 +1603,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AK002AE02",
@@ -1613,11 +1613,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AK002BF",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -1625,7 +1625,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AK002CA01",
@@ -1635,11 +1635,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"XAA001AK002CB",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -1647,7 +1647,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AK002CA02",
@@ -1657,11 +1657,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"XAA001AK002CC",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -1669,7 +1669,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AK002CA03",
@@ -1679,11 +1679,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"XAA001AK002CD",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -1691,7 +1691,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AK002CB01",
@@ -1701,11 +1701,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AK002CF",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -1713,7 +1713,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AK002CB02",
@@ -1723,11 +1723,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AK002CG",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -1735,7 +1735,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AK002CC01",
@@ -1745,11 +1745,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AK002CH",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -1757,7 +1757,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AK002CC02",
@@ -1767,11 +1767,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AK002CI",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -1779,7 +1779,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AK002CC03",
@@ -1789,11 +1789,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AK002CJ",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -1801,7 +1801,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AK002CD01",
@@ -1811,11 +1811,11 @@
     "operator1":"&&",
     "variable2":"01SylaLeftYou",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AK002CH",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -1823,7 +1823,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AK002CD02",
@@ -1833,11 +1833,11 @@
     "operator1":"&&",
     "variable2":"01SylaLeftYou",
     "equivalence2":"!=",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AK002CK",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -1845,7 +1845,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AK002CD03",
@@ -1855,11 +1855,11 @@
     "operator1":"&&",
     "variable2":"01SylaLeftYou",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AK002CL",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -1867,7 +1867,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA001AK002CD04",
@@ -1877,11 +1877,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA001AK002CM",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -1889,7 +1889,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA002AF002AC01",
@@ -1899,11 +1899,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA002AF002BA",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -1911,7 +1911,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA002AF002AC02",
@@ -1921,11 +1921,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA002AF003AA",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -1933,7 +1933,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA002AF003AA01",
@@ -1943,11 +1943,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA002AF003AB",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -1955,7 +1955,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA002AF003AA02",
@@ -1965,11 +1965,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA002AF003AB",
     "destinationA_percentage":0.5,
     "destinationB":"AA002AF003AC",
@@ -1977,7 +1977,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA002AI002AA01",
@@ -1987,11 +1987,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA002AI002AB",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -1999,7 +1999,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA002AI002AA02",
@@ -2009,11 +2009,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA002AI002BA",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -2021,7 +2021,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA002AI000AA01",
@@ -2031,11 +2031,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA002AI000BA",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -2043,7 +2043,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA002AI000AA02",
@@ -2053,11 +2053,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA002AI000BA",
     "destinationA_percentage":0.5,
     "destinationB":"AA002AI000AB",
@@ -2065,7 +2065,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA002AI000AA03",
@@ -2075,11 +2075,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA002AI000AB",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -2087,7 +2087,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA002AI000BB01",
@@ -2097,11 +2097,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA002AI000BD",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -2109,7 +2109,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA002AI000BB02",
@@ -2119,11 +2119,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA002AI000BD",
     "destinationA_percentage":0.5,
     "destinationB":"AA002AI000BD",
@@ -2131,7 +2131,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA002AI000BB03",
@@ -2141,11 +2141,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA002AI000BE",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -2153,7 +2153,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA003AJ002AA01",
@@ -2163,11 +2163,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA003AJ002AB",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -2175,7 +2175,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA003AJ002AA02",
@@ -2185,11 +2185,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA003AJ002AC",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -2197,7 +2197,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA003AJ003AA01",
@@ -2207,11 +2207,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA003AJ003AB",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -2219,7 +2219,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA003AJ003AA02",
@@ -2229,11 +2229,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA003AJ003AC",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -2241,7 +2241,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA003AJ008BA01",
@@ -2251,11 +2251,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA003AJ010AA",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -2263,7 +2263,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA003AJ008BA02",
@@ -2273,11 +2273,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA003AJ010AA",
     "destinationA_percentage":0.5,
     "destinationB":"AA003AJ008BD",
@@ -2285,7 +2285,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA003AJ008CB01",
@@ -2295,11 +2295,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA003AJ008CD",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -2307,7 +2307,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA003AJ008CB02",
@@ -2317,11 +2317,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA003AJ008BD",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -2329,7 +2329,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA003AJ008CF01",
@@ -2339,11 +2339,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA003AJ008CE",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -2351,7 +2351,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA003AJ008CF02",
@@ -2361,11 +2361,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA003AJ008CF",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -2373,7 +2373,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA003AJ009BA01",
@@ -2383,11 +2383,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA003AJ009BB",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -2395,7 +2395,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA003AJ009BA02",
@@ -2405,11 +2405,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA003AJ009BC",
     "destinationA_percentage":0.3,
     "destinationB":"AA003AJ009BD",
@@ -2417,7 +2417,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA003AJ009BG01",
@@ -2427,11 +2427,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA003AJ009BJ",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -2439,7 +2439,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA003AJ009BG02",
@@ -2449,11 +2449,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA003AJ009BK",
     "destinationA_percentage":0.5,
     "destinationB":"AA003AJ009BL",
@@ -2461,7 +2461,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA003AJ010AD01",
@@ -2471,11 +2471,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA003AJ010BA",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -2483,7 +2483,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA003AJ010AD02",
@@ -2493,11 +2493,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA003AJ010CA",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -2505,7 +2505,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA004AM004AA01",
@@ -2515,11 +2515,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA004AP000AA",
     "destinationA_percentage":0.4,
     "destinationB":"AA004AM007AA",
@@ -2527,7 +2527,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA004AM004AA02",
@@ -2537,11 +2537,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA004AP000AA",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -2549,7 +2549,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA004BK005AB01",
@@ -2559,11 +2559,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA004BK005AC",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -2571,7 +2571,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA004BK005AB02",
@@ -2581,11 +2581,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA004BK005AD",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -2593,7 +2593,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA004BK005AA01",
@@ -2603,11 +2603,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA004BK005AF",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -2615,7 +2615,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA004BK005AA02",
@@ -2625,11 +2625,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA004BK005AG",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -2637,7 +2637,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA004BK004AD01",
@@ -2647,11 +2647,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA004BO000AA",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -2659,7 +2659,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA004BK004AD02",
@@ -2669,11 +2669,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA004BO001AA",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -2681,7 +2681,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA004BK004AD03",
@@ -2691,11 +2691,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA004BO002AA",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -2703,7 +2703,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA004BO000AA01",
@@ -2713,11 +2713,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA004BO000AB",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -2725,7 +2725,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA004BO000AA02",
@@ -2735,11 +2735,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA004BO000AC",
     "destinationA_percentage":0.4,
     "destinationB":"AA004BO000AD",
@@ -2747,7 +2747,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA004BO001AA01",
@@ -2757,11 +2757,11 @@
     "operator1":"||",
     "variable2":"DogsKilled",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA004BO001AD",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -2769,7 +2769,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA004BO001AA02",
@@ -2779,11 +2779,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA004BO001AD",
     "destinationA_percentage":0.5,
     "destinationB":"AA004BO001AE",
@@ -2791,7 +2791,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA004BM004AF01",
@@ -2801,11 +2801,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA004BN001AA",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -2813,7 +2813,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA004BM004AF02",
@@ -2823,11 +2823,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA004BN001AA",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -2835,7 +2835,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA004BM004AF03",
@@ -2845,11 +2845,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"XAA004BM004AG",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -2857,7 +2857,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA004BN000AA01",
@@ -2867,11 +2867,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA004BN000AB",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -2879,7 +2879,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA004BN000AA02",
@@ -2889,11 +2889,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA004BN000AI",
     "destinationA_percentage":0.2,
     "destinationB":"AA004BN000AH",
@@ -2901,7 +2901,7 @@
     "destinationC":"AA004BN000AG",
     "destinationC_percentage":0.3,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA004BN000AC01",
@@ -2911,11 +2911,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA004BN000AB",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -2923,7 +2923,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA004BN000AC02",
@@ -2933,11 +2933,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA004BN000AI",
     "destinationA_percentage":0.35,
     "destinationB":"AA004BN000CB",
@@ -2945,7 +2945,7 @@
     "destinationC":"AA004BN000AG",
     "destinationC_percentage":0.1,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA004BN001AE01",
@@ -2955,11 +2955,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA004BN001AH",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -2967,7 +2967,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA004BN001AE02",
@@ -2977,11 +2977,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA004BN001AI",
     "destinationA_percentage":0.5,
     "destinationB":"AA004BN001AJ",
@@ -2989,7 +2989,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA004BM004AG01",
@@ -2999,11 +2999,11 @@
     "operator1":"||",
     "variable2":"01MountainPeopleSaved",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"||",
     "variable3":"01Truce",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA004BN004AA",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -3011,7 +3011,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA004BM004AG02",
@@ -3021,11 +3021,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"XAA004BM004AH",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -3033,7 +3033,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA004BM004AH01",
@@ -3043,11 +3043,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA004BN002AA",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -3055,7 +3055,7 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   },
   {
     "KEY":"XAA004BM004AH02",
@@ -3065,11 +3065,11 @@
     "operator1":"",
     "variable2":"",
     "equivalence2":"",
-    "value2":"",
+    "value2":null,
     "operator2":"",
     "variable3":"",
     "equivalence3":"",
-    "value3":"",
+    "value3":null,
     "destinationA":"AA004BN003AA",
     "destinationA_percentage":null,
     "destinationB":"",
@@ -3077,6 +3077,6 @@
     "destinationC":"",
     "destinationC_percentage":null,
     "destinationD":"",
-    "destinationD_percentage":""
+    "destinationD_percentage":null
   }
 ]
