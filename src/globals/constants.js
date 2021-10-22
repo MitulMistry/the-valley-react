@@ -43,5 +43,6 @@ export default {
   END_KEY: 'END',
   CONTINUE_TEXT: 'Continue...',
   DEATH_TEXT: 'You died... but maybe next time, things will be different.',
-  END_TEXT: 'The end... or is it?'
+  END_TEXT: 'The end... or is it?',
+  END_CHOICE: 'Return to menu...'
 };

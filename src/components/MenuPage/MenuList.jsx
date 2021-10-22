@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { MenuItem } from './MenuItem';
 
 import constants from '../../globals/constants';
-import { setLoading } from '../../actions/dataActions';
 
 export class MenuList extends React.Component {
   constructor(props) {
@@ -33,12 +32,13 @@ export class MenuList extends React.Component {
   }
 
   render() {
-    const { gameStarted } = this.props;
+    const { gameStarted, currentNodeKey } = this.props;
+    const gameEnded = (currentNodeKey === constants.DEATH_KEY || currentNodeKey === constants.END_KEY);
 
     return (
       <div className="menu-list">
         <h3><Link to="/game" onClick={ this.startNewGame }>New Game</Link></h3>
-        {gameStarted &&
+        {gameStarted && !gameEnded &&
         <h3><Link to="/game">Resume Game</Link></h3>
         }
       </div>

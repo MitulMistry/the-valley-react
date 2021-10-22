@@ -9,7 +9,8 @@ import { resetPoints } from '../../actions/pointsActions';
 import { loadModuleData, setLoading } from '../../actions/dataActions';
 
 const mapStateToProps = state => ({
-  gameStarted: state.game.gameStarted
+  gameStarted: state.game.gameStarted,
+  currentNodeKey: state.game.currentNodeKey
 });
 
 const mapDispatchToProps = dispatch => ({

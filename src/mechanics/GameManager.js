@@ -25,9 +25,9 @@ export default class {
     const key = store.getState().game.currentNodeKey;
     let text = '';
 
-    if (key === 'DEATH') {
+    if (key === constants.DEATH_KEY) {
       text = constants.DEATH_TEXT;
-    } else if (key === 'END') {
+    } else if (key === constants.END_KEY) {
       text = constants.END_TEXT;
     } else {
       text = store.getState().data.textData[key];
@@ -44,24 +44,41 @@ export default class {
     let choices = [];
 
     const currentNodeKey = store.getState().game.currentNodeKey;
-    const choicesData = store.getState().data.choicesData;
 
-    // TODO: Redesign to not have to search through all data
-    for (const i in choicesData) {
-      stringTest = choicesData[i].KEY;
+    if (currentNodeKey === constants.DEATH_KEY) {
+      choices.push({
+        key: constants.DEATH_KEY,
+        text: constants.END_CHOICE,
+        colorClass: 'color-choice'
+      });
+      
+    } else if (currentNodeKey === constants.END_KEY){
+      choices.push({
+        key: constants.END_KEY,
+        text: constants.END_CHOICE,
+        colorClass: 'color-choice'
+      });
+      
+    } else {
+      const choicesData = store.getState().data.choicesData;
 
-      if (stringTest.substring(0, 12) === currentNodeKey) {
+      // TODO: Redesign to not have to search through all data
+      for (const i in choicesData) {
+        stringTest = choicesData[i].KEY;
 
-        if (this.checkChoice(i)) {
-          const choiceData = choicesData[i];
+        if (stringTest.substring(0, 12) === currentNodeKey) {
 
-          let choice = {
-            key: choiceData.KEY,
-            text: choiceData.text,
-            colorClass: this.getColorClass(choiceData)
-          };
+          if (this.checkChoice(i)) {
+            const choiceData = choicesData[i];
 
-          choices.push(choice);
+            let choice = {
+              key: choiceData.KEY,
+              text: choiceData.text,
+              colorClass: this.getColorClass(choiceData)
+            };
+
+            choices.push(choice);
+          }
         }
       }
     }

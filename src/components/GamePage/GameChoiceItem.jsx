@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import GameManager from '../../mechanics/GameManager';
 import constants from '../../globals/constants';
 
@@ -19,12 +20,14 @@ export class GameChoiceItem extends React.Component {
   render() {
     const { choice } = this.props;
     const cssClasses = `game-choice-item ${choice.colorClass}`;
+    const gameEnded = (choice.key === constants.DEATH_KEY || choice.key === constants.END_KEY);
 
     return (
       <p>
-        <a href="/#" className={ cssClasses } onClick={ this.makeDecision }>
+        {!gameEnded && <a href="/#" className={ cssClasses } onClick={ this.makeDecision }>
           { choice.text || constants.CONTINUE_TEXT }
-        </a>
+        </a>}
+        {gameEnded && <Link className="game-choice-item color-choice" to="/">{constants.END_CHOICE}</Link>}
       </p>
     );
   }
