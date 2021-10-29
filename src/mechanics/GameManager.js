@@ -2,7 +2,8 @@ import { setText, setChoices } from '../actions/textActions';
 import { addToLog, setCurrentNodeKey } from '../actions/gameLogActions';
 import { changePoints } from '../actions/pointsActions';
 import { setVariables } from '../actions/variablesActions';
-import { checkIfGameOver, checkIfGameDead, checkIfGameEnded } from './helpers';
+import { checkIfGameOver, checkIfGameDeath, checkIfGameEnded } from './helpers';
+import { parseChoiceCost, parseChoiceBoost } from './parsers';
 
 // Import Redux store from index.js where it is created.
 // Store can be accessed with .getState() and can .dispatch() actions.
@@ -26,7 +27,7 @@ export default class {
     const key = store.getState().game.currentNodeKey;
     let text = '';
 
-    if (checkIfGameDead(key)) {
+    if (checkIfGameDeath(key)) {
       text = constants.DEATH_TEXT;
     } else if (checkIfGameEnded(key)) {
       text = constants.END_TEXT;
@@ -46,7 +47,7 @@ export default class {
 
     const currentNodeKey = store.getState().game.currentNodeKey;
 
-    if (checkIfGameDead(currentNodeKey)) {
+    if (checkIfGameDeath(currentNodeKey)) {
       choices.push({
         key: constants.DEATH_KEY,
         text: constants.END_CHOICE,
@@ -98,31 +99,31 @@ export default class {
     // Choice costs in JSON data are defined using keywords like "mini01"
     // which are parsed and converted to integers based on imported constants.
     if (choice.karmaCost) {
-      if (playerPoints.karma >= this.parseChoiceCost(choice.karmaCost)) {
+      if (playerPoints.karma >= parseChoiceCost(choice.karmaCost)) {
         return true;
       } else {
         return false;
       }
     } else if (choice.powerCost) {
-      if (playerPoints.power >= this.parseChoiceCost(choice.powerCost)) {
+      if (playerPoints.power >= parseChoiceCost(choice.powerCost)) {
         return true;
       } else {
         return false;
       }
     } else if (choice.intellectCost) {
-      if (playerPoints.intellect >= this.parseChoiceCost(choice.intellectCost)) {
+      if (playerPoints.intellect >= parseChoiceCost(choice.intellectCost)) {
         return true;
       } else {
         return false;
       }
     } else if (choice.loveCost) {
-      if (playerPoints.love >= this.parseChoiceCost(choice.loveCost)) {
+      if (playerPoints.love >= parseChoiceCost(choice.loveCost)) {
         return true;
       } else {
         return false;
       }
     } else if (choice.darkTetradCost) {
-      if (playerPoints.darkTetrad >= this.parseChoiceCost(choice.darkTetradCost)) {
+      if (playerPoints.darkTetrad >= parseChoiceCost(choice.darkTetradCost)) {
         return true;
       } else {
         return false;
@@ -195,59 +196,7 @@ export default class {
     }
 
     return colorClass;
-  }
-
-  // Convert text values for point costs to numerical values based on constants
-  static parseChoiceCost(stringToParse) {
-    switch (stringToParse) {
-      case 'mini01':
-        return constants.POINT_COST_MINI_01;
-      case 'mini02':
-        return constants.POINT_COST_MINI_02;
-      case 'mini03':
-        return constants.POINT_COST_MINI_03;
-      case 'moderate01':
-        return constants.POINT_COST_MODERATE_01;
-      case 'moderate02':
-        return constants.POINT_COST_MODERATE_02;
-      case 'moderate03':
-        return constants.POINT_COST_MODERATE_03;
-      case 'heavy01':
-        return constants.POINT_COST_HEAVY_01;
-      case 'heavy02':
-        return constants.POINT_COST_HEAVY_02;
-      case 'heavy03':
-        return constants.POINT_COST_HEAVY_03;
-      case 'mega01':
-        return constants.POINT_COST_MEGA_01;
-      case 'mega02':
-        return constants.POINT_COST_MEGA_02;
-      case 'mega03':
-        return constants.POINT_COST_MEGA_03;
-      default:
-        return 0;
-    }
-  }
-
-  // Convert text values for point boosts to numerical values based on constants
-  static parseChoiceBoost(stringToParse) {
-    switch (stringToParse) {
-      case 'small':
-        return constants.POINT_BOOST_SMALL;
-      case 'medium':
-        return constants.POINT_BOOST_MEDIUM;
-      case 'large':
-        return constants.POINT_BOOST_LARGE;
-      case 'large02':
-        return constants.POINT_BOOST_LARGE02;
-      case 'huge':
-        return constants.POINT_BOOST_HUGE;
-      case 'jackpot':
-        return constants.POINT_BOOST_JACKPOT;
-      default:
-        return 0;
-    }
-  }
+  }  
 
   // This method checks for additional variables in the playerVariables object.
   // It checks on the player's past decisions based on a reference (the variable cost key),
@@ -458,23 +407,23 @@ export default class {
     // Adjust player spirit points based on choice object properties.
     // Empty string, null, undefined, and 0 are all falsy.
     if (karmaBoost) {
-      playerPoints.karma += this.parseChoiceBoost(karmaBoost);
+      playerPoints.karma += parseChoiceBoost(karmaBoost);
     }
 
     if (intellectBoost) {
-      playerPoints.intellect += this.parseChoiceBoost(intellectBoost);
+      playerPoints.intellect += parseChoiceBoost(intellectBoost);
     }
 
     if (loveBoost) {
-      playerPoints.love += this.parseChoiceBoost(loveBoost);
+      playerPoints.love += parseChoiceBoost(loveBoost);
     }
 
     if (powerBoost) {
-      playerPoints.power += this.parseChoiceBoost(powerBoost);
+      playerPoints.power += parseChoiceBoost(powerBoost);
     }
 
     if (darkTetradBoost) {
-      playerPoints.darkTetrad += this.parseChoiceBoost(darkTetradBoost);
+      playerPoints.darkTetrad += parseChoiceBoost(darkTetradBoost);
     }
 
     // If any point category was updated, dispatch action to update Redux store.
