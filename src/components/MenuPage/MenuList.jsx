@@ -11,27 +11,47 @@ export class MenuList extends React.Component {
     super(props);
 
     this.startNewGame = this.startNewGame.bind(this);
+    this.loadData = this.loadData.bind(this);
   }
 
-  startNewGame() {
-    // Dispatch Redux actions
+  startNewGame() {    
     const {
       startGame,
       resetTextChoices,
       resetVariables,
       resetPoints,
-      loadModuleData,
-      setLoading
     } = this.props;
-    
+
+    // Dispatch Redux actions
     startGame();
     resetTextChoices();
     resetVariables();
     resetPoints();
-    setLoading(true);
-    loadModuleData(constants.MODULE_ASCENT_OF_MAN);
+    
+    this.loadData();
   }
 
+  loadData() {
+    const {
+      textData,
+      loadModuleData,
+      setLoading
+    } = this.props;
+
+    // Check if text data is already loaded - only load if it's not
+    if (!(constants.ASCENT_OF_MAN_STARTING_KEY in textData)) {
+      // Set loading flag for GameLoadingContainer
+      setLoading(true);
+      // Dispatch Redux action to load text data
+      loadModuleData(constants.MODULE_ASCENT_OF_MAN);
+    }
+  }
+
+  // Starting a new game should load everything from a default state (using
+  // the startNewGame function). Resuming a game shouldn't need to load anything,
+  // unless the state has been loaded from browser storage (after a hard page
+  // refresh, or going to the page again after closing it). The text data is
+  // too large to keep in browser storage, so it must be loaded again. 
   render() {
     const { gameStarted, currentNodeKey } = this.props;
     const gameOver = (checkIfGameOver(currentNodeKey));
@@ -40,7 +60,7 @@ export class MenuList extends React.Component {
       <div className="menu-list">
         <h3><Link to="/game" onClick={ this.startNewGame }>New Game</Link></h3>
         {gameStarted && !gameOver &&
-        <h3><Link to="/game">Resume Game</Link></h3>
+        <h3><Link to="/game" onClick={ this.loadData }>Resume Game</Link></h3>
         }
       </div>
     );
