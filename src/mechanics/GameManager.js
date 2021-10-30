@@ -12,7 +12,7 @@ import { store } from '../index';
 import constants from '../globals/constants';
 
 
-export default class {
+export default class GameManager {
   
   // Call this method to load text and choices into the Redux store based
   // on the current node key.

@@ -5,7 +5,7 @@ import ascentOfManTextJSON from '../storyModules/module01AscentOfManTEXT.json';
 
 import constants from '../globals/constants';
 
-export default class {
+export default class TextManager {
 
   // This method loads JSON story data and returns an object
   // structured like this:

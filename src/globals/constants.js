@@ -1,4 +1,4 @@
-export default {
+const constants = {
   // Story module numbers
   MODULE_ASCENT_OF_MAN: 1, // AA
   MODULE_VALLEY_SPIRIT: 2, // AB
@@ -46,3 +46,5 @@ export default {
   END_TEXT: 'The end... or is it?',
   END_CHOICE: 'Return to menu...'
 };
+
+export default constants;
