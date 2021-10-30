@@ -11,7 +11,6 @@ import { loadModuleData, setLoading } from '../../actions/dataActions';
 const mapStateToProps = state => ({
   gameStarted: state.game.gameStarted,
   currentNodeKey: state.game.currentNodeKey,
-  textData: state.data.textData
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -1,5 +1,7 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 
+import constants from '../../globals/constants';
 import GameManager from '../../mechanics/GameManager';
 
 import { GameNavBar } from './GameNavBar';
@@ -13,10 +15,19 @@ export class GamePage extends React.Component {
     this.state = {
       dispatchSent: false
     };
+
+    this.checkIfModuleLoaded = this.checkIfModuleLoaded.bind(this);
   }
 
   componentDidMount() {
-    GameManager.loadGame();
+    if (this.checkIfModuleLoaded()) {    
+      GameManager.loadGame();
+    }
+  }
+
+  // Check if text data is loaded in Redux store
+  checkIfModuleLoaded() {
+    return (GameManager.checkIfModuleLoaded(constants.MODULE_ASCENT_OF_MAN));
   }
 
   render() {
@@ -37,6 +48,11 @@ export class GamePage extends React.Component {
         resetTextUpdate();
         this.setState({dispatchSent: false});
       }, 1000)
+    }
+
+    // If module isn't loaded, redirect to menu screen
+    if (!this.checkIfModuleLoaded()) {
+      return <Redirect to="/" />
     }
 
     return (

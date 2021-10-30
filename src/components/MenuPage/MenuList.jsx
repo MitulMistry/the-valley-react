@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import constants from '../../globals/constants';
+import GameManager from '../../mechanics/GameManager';
 import { checkIfGameOver } from '../../mechanics/helpers';
 
 export class MenuList extends React.Component {
@@ -32,13 +33,12 @@ export class MenuList extends React.Component {
 
   loadData() {
     const {
-      textData,
       loadModuleData,
       setLoading
     } = this.props;
 
     // Check if text data is already loaded - only load if it's not
-    if (!(constants.ASCENT_OF_MAN_STARTING_KEY in textData)) {
+    if (!(GameManager.checkIfModuleLoaded(constants.MODULE_ASCENT_OF_MAN))) {
       // Set loading flag for GameLoadingContainer
       setLoading(true);
       // Dispatch Redux action to load text data

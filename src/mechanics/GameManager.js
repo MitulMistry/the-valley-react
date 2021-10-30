@@ -13,6 +13,18 @@ import constants from '../globals/constants';
 
 
 export default class GameManager {
+
+  // Check if the JSON data for a module has been loaded into the
+  // Redux store - return true or false.
+  static checkIfModuleLoaded(moduleName) {
+    let startingKey = '';
+
+    if (moduleName === constants.MODULE_ASCENT_OF_MAN) {
+      startingKey = constants.ASCENT_OF_MAN_STARTING_KEY;
+    }
+    
+    return (startingKey in store.getState().data.textData);
+  }
   
   // Call this method to load text and choices into the Redux store based
   // on the current node key.
