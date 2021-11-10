@@ -5,8 +5,8 @@
 
 The Valley is a JavaScript based system for loading, playing, and managing non-linear text adventures. It allows for branching paths based on the player's choices and keeps track of progress and past decisions.
 
-<!-- ## Demo App
-Sample application deployed on Heroku: https://the-valley.herokuapp.com/ -->
+## Demo App
+You can see a demo version of this application deployed to Heroku here: https://the-valley.herokuapp.com/
 
 ## Features
 - Non-linear branching paths: Progress along a variety of storylines that change and react.
