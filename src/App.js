@@ -1,6 +1,6 @@
 import {
   BrowserRouter as Router,
-  Switch,
+  Routes,
   Route
 } from 'react-router-dom';
 
@@ -13,14 +13,10 @@ const App = ({ store }) => (
   <Provider store={store}>
     <Router>
       <Container className="app">
-        <Switch>
-          <Route path="/game">
-            <GameLoadingContainer />
-          </Route>
-          <Route path="/">
-            <MenuPage />
-          </Route>
-        </Switch>
+        <Routes>
+          <Route path="/game" element={<GameLoadingContainer />} />
+          <Route path="/" element = {<MenuPage />} />
+        </Routes>
       </Container>
     </Router>
   </Provider>

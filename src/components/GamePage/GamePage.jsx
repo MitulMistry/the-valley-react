@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
 import constants from '../../globals/constants';
 import GameManager from '../../mechanics/GameManager';
@@ -52,7 +52,7 @@ export class GamePage extends React.Component {
 
     // If module isn't loaded, redirect to menu screen
     if (!this.checkIfModuleLoaded()) {
-      return <Redirect to="/" />
+      return <Navigate to="/" />
     }
 
     return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import configureStore from './store/store';
 
 import App from './App';
@@ -20,11 +20,11 @@ const store = configureStore(preloadedState);
 const content = [<App store={store} key="1" />, <Footer key="2" />];
 
 document.addEventListener('DOMContentLoaded', () => {
-  ReactDOM.render(
+  const root = ReactDOM.createRoot(document.getElementById('root'));
+  root.render(
     <React.StrictMode>
       {content}
-    </React.StrictMode>,
-    document.getElementById('root')
+    </React.StrictMode>
   );
 
   // If you want to start measuring performance in your app, pass a function
