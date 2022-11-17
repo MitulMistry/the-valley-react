@@ -2,7 +2,7 @@ var express = require('express'); // https://github.com/heroku/node-js-getting-s
 var path = require('path');
 var app = express();
 
-app.set('port', (process.env.PORT || 5000)); // gets port from environment or else defaults to 5000
+app.set('port', (process.env.PORT || 8080)); // gets port from environment or else defaults to 8080
 
 app.use(express.static(path.join(__dirname, 'build'))); // read files from this folder
 
