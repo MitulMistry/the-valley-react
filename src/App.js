@@ -14,8 +14,10 @@ const App = ({ store }) => (
     <Router>
       <Container className="app">
         <Routes>
-          <Route path="/game" element={<GameLoadingContainer />} />
+          <Route path="game" element={<GameLoadingContainer />} />
           <Route path="/" element = {<MenuPage />} />
+          {/* The below route acts as a catch-all. */}
+          <Route path="*" element={<MenuPage />} />
         </Routes>
       </Container>
     </Router>

@@ -49,6 +49,8 @@ All this gameplay processing is done in the [GameManager](../master/src/mechanic
 
 `npm run build` - Bundles the app into static files for production.
 
+`npm run serve` - Serves the production build.
+
 `npm run eject` - Removes Create React App and copies build dependencies, configuration files and scripts into the app directory. If you do this, you can’t go back!
 
 ## Install Instructions
