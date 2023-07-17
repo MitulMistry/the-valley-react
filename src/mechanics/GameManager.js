@@ -103,6 +103,7 @@ export default class GameManager {
   // Choices in this game can have a cost based on collected points or other
   // variable requirements. This method checks if a choice is available to the
   // player based on the player's current points and past decisions (playerVariables).
+  // Returns a Boolean true/false value.
   static checkChoice(choiceKey) {
     const choice = store.getState().data.choicesData[choiceKey];
     const playerPoints = store.getState().points;
@@ -111,75 +112,53 @@ export default class GameManager {
     // Choice costs in JSON data are defined using keywords like "mini01"
     // which are parsed and converted to integers based on imported constants.
     if (choice.karmaCost) {
-      if (playerPoints.karma >= parseChoiceCost(choice.karmaCost)) {
-        return true;
-      } else {
-        return false;
-      }
+      return (playerPoints.karma >= parseChoiceCost(choice.karmaCost));
+
     } else if (choice.powerCost) {
-      if (playerPoints.power >= parseChoiceCost(choice.powerCost)) {
-        return true;
-      } else {
-        return false;
-      }
+      return (playerPoints.power >= parseChoiceCost(choice.powerCost));
+
     } else if (choice.intellectCost) {
-      if (playerPoints.intellect >= parseChoiceCost(choice.intellectCost)) {
-        return true;
-      } else {
-        return false;
-      }
+      return (playerPoints.intellect >= parseChoiceCost(choice.intellectCost));
+
     } else if (choice.loveCost) {
-      if (playerPoints.love >= parseChoiceCost(choice.loveCost)) {
-        return true;
-      } else {
-        return false;
-      }
+      return (playerPoints.love >= parseChoiceCost(choice.loveCost));
+
     } else if (choice.darkTetradCost) {
-      if (playerPoints.darkTetrad >= parseChoiceCost(choice.darkTetradCost)) {
-        return true;
-      } else {
-        return false;
-      }
+      return (playerPoints.darkTetrad >= parseChoiceCost(choice.darkTetradCost));
+
     // Check additional variables (playerVariables).
     // Is this choice available to the player based on their past decisions?
     } else if (choice.additionalVariableCostA_Key) {
       const condition1 = this.checkPlayerVariables(
         choice.additionalVariableCostA_Key,
         choice.additionalVariableCostA_Equivalence,
-        choice.additionalVariableCostA_Value);
+        choice.additionalVariableCostA_Value
+      );
 
       if (choice.additionalVariableCostB_Key) {
         // There are two additional variable costs
-
         const condition2 = this.checkPlayerVariables(
           choice.additionalVariableCostB_Key,
           choice.additionalVariableCostB_Equivalence,
-          choice.additionalVariableCostB_Value);
+          choice.additionalVariableCostB_Value
+        );
 
         if (choice.additionalVariableCost_Operator === '&&') {
-          if (condition1 && condition2) {
-            return true;
-          } else {
-            return false;
-          }
+          return (condition1 && condition2);
+
         } else if (choice.additionalVariableCost_Operator === '||') {
-          if (condition1 || condition2) {
-            return true;
-          } else {
-            return false;
-          }
+          return (condition1 || condition2);
+
         } else {
           // Then there's an error
           return false;
         }
+
       } else {
         // There's only one additional variable cost
-        if (condition1) {
-          return true;
-        } else {
-          return false;
-        }
+        return (condition1);
       }
+
     } else {
       // There are no costs for this choice, so return true
       return true;
@@ -189,26 +168,22 @@ export default class GameManager {
   // Return a CSS class name for what color the choice text should be.
   // These are the classNames that should be attached to the choices in React.
   static getColorClass(choice) {
-    let colorClass;
-
     // Determine if a type of point cost is present for the choice,
     // then return the appropriate class name.
     if (choice.karmaCost) {
-      colorClass = 'color-karma';
+      return 'color-karma';
     } else if (choice.powerCost) {
-      colorClass = 'color-power';
+      return 'color-power';
     } else if (choice.intellectCost) {
-      colorClass = 'color-intellect';
+      return 'color-intellect';
     } else if (choice.loveCost) {
-      colorClass = 'color-love';
+      return 'color-love';
     } else if (choice.darkTetradCost) {
-      colorClass = 'color-dark-tetrad';
+      return 'color-dark-tetrad';
     } else {
-      colorClass = 'color-choice';
+      return 'color-choice';
     }
-
-    return colorClass;
-  }  
+  }
 
   // This method checks for additional variables in the playerVariables object.
   // It checks on the player's past decisions based on a reference (the variable cost key),
@@ -222,62 +197,38 @@ export default class GameManager {
     // If found, checks for whether it's >, <, etc. to the value provided.
     // If it doesn't pass the test to the value, or if not found, it returns false.
     
+    // If variable not found in playerVariables, assign default value.
+    const playerValue = (reference in playerVariables) ? playerVariables[reference] : defaultValue;
+
     // Empty string, null, undefined, and 0 are all falsy
     if (!equivalence) {
       // Just search for whether the additional variable is present - value doesn't matter
       return (reference in playerVariables);
+
     } else if (equivalence === '=') {
       // Check for presence of variable and value
-      return (playerVariables[reference] === value);
+      return (playerValue === value);
+
     } else if (equivalence === '!=' && (!value)) {
       // Checks if the additional variable is present at all and returns false if present, true if not
       // - opposite of first check in this series. e.g. if !(01JennethDead), then returns true.
       return !(reference in playerVariables);
-    } else if (equivalence === '!=' && (value)) {
-      if (reference in playerVariables && playerVariables[reference] !== value) {
-        return true;
-      } else if (value !== defaultValue) {
-        // Variable not found, so assume default value (0)
-        return true;
-      } else {
-        return false;
-      }
+      
+    } else if (equivalence === '!=' && (value)) {      
+      return (playerValue !== value);
+
     } else if (equivalence === '<') {
-      if (reference in playerVariables && playerVariables[reference] < value) {
-        return true;
-      } else if (value < defaultValue) {
-        // Variable not found, so assume default value (0)
-        return true;
-      } else {
-        return false;
-      }
+      return (playerValue < value);
+
     } else if (equivalence === '<=') {
-      if (reference in playerVariables && playerVariables[reference] <= value) {
-        return true;
-      } else if (value <= defaultValue) {
-        // Variable not found, so assume default value (0)
-        return true;
-      } else {
-        return false;
-      }
+      return (playerValue <= value);
+      
     } else if (equivalence === '>') {
-      if (reference in playerVariables && playerVariables[reference] > value) {
-        return true;
-      } else if (value > defaultValue) {
-        // Variable not found, so assume default value (0)
-        return true;
-      } else {
-        return false;
-      }
+      return (playerValue > value);
+
     } else if (equivalence === '>=') {
-      if (reference in playerVariables && playerVariables[reference] >= value) {
-        return true;
-      } else if (value >= defaultValue) {
-        // Variable not found, so assume default value (0)
-        return true;
-      } else {
-        return false;
-      }
+      return (playerValue >= value);
+
     } else {
       // In case anything goes wrong, defaults to returning false
       console.log('%c checkPlayerVariables() error ', 'color:white; background:red;');
